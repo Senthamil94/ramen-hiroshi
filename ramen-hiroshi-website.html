@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ramen Hiroshi | Authentic Japanese Ramen — San Ramon · Walnut Creek · San Francisco · Emeryville</title>
+<meta name="description" content="Handcrafted Japanese ramen with rich slow-simmered broths, fresh noodles, and traditional recipes. Dine in or order online at our four Bay Area locations.">
+<link rel="icon" href="assets/fav-icon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="accessibility.css">
+<style>
+:root{
+  --ink:#16120F;          /* lacquer black */
+  --ink-2:#241D18;
+  --paper:#FBF5E9;        /* rice paper */
+  --broth:#F2E6CF;        /* tonkotsu cream */
+  --red:#C3272B;          /* shu vermilion — brand red */
+  --red-deep:#8E191D;
+  --gold:#D9A441;
+  --line:rgba(22,18,15,.14);
+  --line-light:rgba(251,245,233,.16);
+  --disp:'Shippori Mincho B1',serif;
+  --body:'Zen Kaku Gothic New',sans-serif;
+  --rad:18px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+h1,h2,h3,.disp{font-family:var(--disp);font-weight:700;line-height:1.15}
+::selection{background:var(--red);color:var(--paper)}
+
+/* ---------- utilities ---------- */
+.wrap{width:min(1180px,92%);margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--red)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--red)}
+.sec-title{font-size:clamp(2rem,4.4vw,3.4rem);margin:.5rem 0 1rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 2rem;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.04em;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 26px -10px rgba(195,39,43,.65)}
+.btn-red:hover{transform:translateY(-3px);background:var(--red-deep);box-shadow:0 16px 32px -10px rgba(195,39,43,.7)}
+.btn-ghost{border:1.5px solid currentColor}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-3px)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ---------- nav ---------- */
+nav{position:fixed;inset:0 0 auto 0;z-index:100;background:var(--paper);box-shadow:0 1px 0 var(--line);transition:box-shadow .4s,padding .4s}
+nav .bar{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+.logo{display:flex;align-items:center}
+.logo img{width:min(230px,42vw);height:50px;object-fit:contain;transition:transform .5s var(--ease)}
+.logo:hover img{transform:scale(1.03)}
+.nav-links{display:flex;align-items:center;gap:1.8rem;font-weight:600;font-size:.92rem}
+.nav-links a{position:relative;padding:.3rem 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-links .btn{padding:.6rem 1.4rem;font-size:.85rem}
+.burger{display:none;flex-direction:column;gap:5px;padding:.5rem;z-index:110}
+.burger span{width:26px;height:2.5px;background:var(--ink);border-radius:2px;transition:.35s var(--ease)}
+nav.open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+nav.open .burger span:nth-child(2){opacity:0}
+nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;background:var(--ink);color:var(--paper);display:flex;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(1100px 620px at 78% 42%,rgba(195,39,43,.28),transparent 60%),radial-gradient(700px 500px at 12% 88%,rgba(217,164,65,.12),transparent 60%)}
+.kanji-bg{position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:var(--disp);font-size:clamp(14rem,30vw,26rem);line-height:.9;color:transparent;-webkit-text-stroke:1px rgba(251,245,233,.09);writing-mode:vertical-rl;user-select:none;pointer-events:none;letter-spacing:.05em}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;padding:7.5rem 0 5rem}
+.hero-tag{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--line-light);border-radius:999px;padding:.45rem 1.1rem;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.hero-tag i{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scale(1.5);opacity:.6}}
+.hero h1{font-size:clamp(2.7rem,5.6vw,4.6rem);font-weight:800;margin:1.3rem 0 1.1rem}
+.hero h1 em{font-style:normal;color:var(--red);position:relative}
+.hero h1 em::after{content:"";position:absolute;left:0;bottom:.06em;width:100%;height:.14em;background:var(--red);opacity:.25;border-radius:99px}
+.hero p{max-width:46ch;color:rgba(251,245,233,.78);font-size:1.06rem}
+.hero-ctas{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}
+.hero-stats{display:flex;gap:2.4rem;margin-top:3rem;flex-wrap:wrap}
+.hero-stats div b{font-family:var(--disp);font-size:1.7rem;color:var(--gold)}
+.hero-stats div span{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,245,233,.55)}
+
+/* bowl + steam */
+.bowl-stage{position:relative;display:grid;place-items:center;overflow:hidden}
+.bowl-ring{position:absolute;width:118%;aspect-ratio:1;border-radius:50%;border:1px dashed rgba(251,245,233,.22);animation:spin 40s linear infinite}
+.bowl-ring::before{content:"麺 · MEN · 湯 · SOUP · 叉焼 · CHASHU · ";position:absolute;inset:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orbit-txt{position:absolute;width:118%;aspect-ratio:1;animation:spin 46s linear infinite reverse;pointer-events:none}
+.orbit-txt span{position:absolute;left:50%;top:50%;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(217,164,65,.75);transform-origin:0 0}
+.bowl{width:min(430px,80vw);aspect-ratio:1;border-radius:50%;object-fit:cover;border:10px solid rgba(251,245,233,.06);box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px rgba(251,245,233,.1);animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px)}}
+.steam{position:absolute;bottom:78%;left:50%;pointer-events:none;z-index:3}
+.steam i{position:absolute;bottom:0;width:9px;height:9px;border-radius:50%;background:rgba(251,245,233,.5);filter:blur(6px);opacity:0;animation:rise 4.2s ease-in infinite}
+@keyframes rise{0%{opacity:0;transform:translate(0,0) scale(.6)}15%{opacity:.85}100%{opacity:0;transform:translate(var(--dx,0),-190px) scale(2.6)}}
+.chip{position:absolute;background:rgba(22,18,15,.78);backdrop-filter:blur(8px);border:1px solid var(--line-light);border-radius:14px;padding:.7rem 1rem;font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:.55rem;animation:float 7s ease-in-out infinite}
+.chip b{color:var(--gold)}
+.chip.c1{top:6%;left:-4%;animation-delay:.8s}
+.chip.c2{bottom:10%;right:-6%;animation-delay:1.6s}
+.scroll-cue{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:5;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(251,245,233,.55);display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.scroll-cue::after{content:"";width:1px;height:38px;background:linear-gradient(var(--red),transparent);animation:drip 1.8s infinite}
+@keyframes drip{from{transform:scaleY(0);transform-origin:top}to{transform:scaleY(1);transform-origin:top}}
+
+/* ---------- ticker ---------- */
+.ticker-wrap{overflow:hidden;margin:-1rem 0}
+.ticker{background:var(--red);color:#fff;overflow:hidden;padding:.85rem 0;position:relative;z-index:5;box-shadow:0 12px 30px -12px rgba(195,39,43,.6)}
+.ticker-track{display:flex;gap:3rem;width:max-content;animation:slide 26s linear infinite;font-family:var(--disp);font-weight:700;font-size:1.05rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.ticker-track span::after{content:"◦";margin-left:3rem;color:var(--gold)}
+
+/* ---------- locations (signature) ---------- */
+.loc-sec{background:var(--ink);color:var(--paper);padding:7.5rem 0 6.5rem;position:relative;overflow:hidden}
+.loc-sec .kanji-side{position:absolute;left:1.5rem;top:8rem;writing-mode:vertical-rl;font-family:var(--disp);font-size:1.05rem;letter-spacing:.55em;color:rgba(251,245,233,.28)}
+.loc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.loc-head p{max-width:52ch;color:rgba(251,245,233,.7)}
+.noren{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-bottom:2.2rem}
+.noren button{position:relative;padding:1.15rem .6rem 1rem;background:var(--ink-2);border:1px solid var(--line-light);border-radius:0 0 16px 16px;color:rgba(251,245,233,.72);font-weight:700;font-size:.95rem;letter-spacing:.05em;transition:.35s var(--ease);transform-origin:top center;overflow:hidden}
+.noren button small{display:block;font-family:var(--disp);font-size:.72rem;letter-spacing:.4em;color:var(--gold);margin-bottom:.2rem}
+.noren button::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--red);opacity:0;transition:.3s}
+.noren button:hover{transform:rotate(1.6deg);color:var(--paper)}
+.noren button.on{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 18px 40px -14px rgba(195,39,43,.65)}
+.noren button.on small{color:#F6D8A8}
+.loc-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:0;border:1px solid var(--line-light);border-radius:26px;overflow:hidden;background:var(--ink-2)}
+.loc-photo{position:relative;min-height:440px;overflow:hidden}
+.loc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:opacity .6s,transform 8s var(--ease)}
+.loc-panel.show .loc-photo img{transform:scale(1.14)}
+.loc-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(22,18,15,.35),transparent 55%)}
+.loc-badge{position:absolute;top:1.2rem;left:1.2rem;z-index:2;display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border-radius:999px;font-size:.78rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;backdrop-filter:blur(8px)}
+.loc-badge.open{background:rgba(34,120,63,.85);color:#DFF7E6}
+.loc-badge.closed{background:rgba(142,25,29,.85);color:#FBDADA}
+.loc-badge i{width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 1.8s infinite}
+.loc-info{padding:2.6rem 2.6rem 2.4rem;display:flex;flex-direction:column}
+.loc-info h3{font-size:clamp(1.7rem,2.6vw,2.3rem);margin:.2rem 0 .4rem}
+.loc-info .addr{color:rgba(251,245,233,.75)}
+.loc-info .num{font-family:var(--disp);color:var(--gold);letter-spacing:.3em;font-size:.8rem}
+.hours{margin:1.4rem 0;border-top:1px solid var(--line-light);font-size:.92rem}
+.hours div{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid var(--line-light)}
+.hours b{color:rgba(251,245,233,.9);font-weight:700}
+.hours span{color:rgba(251,245,233,.65);text-align:right}
+.hours div.today{color:var(--gold)}
+.hours div.today b,.hours div.today span{color:var(--gold)}
+.loc-ctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:auto}
+.loc-ctas .btn{padding:.8rem 1.5rem;font-size:.88rem}
+.btn-line{border:1.5px solid var(--line-light);color:var(--paper)}
+.btn-line:hover{background:var(--paper);color:var(--ink);transform:translateY(-3px)}
+.loc-fade{animation:locIn .55s var(--ease)}
+@keyframes locIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- about ---------- */
+.about{padding:7rem 0;overflow-x:clip}
+.about .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:4rem;align-items:center}
+.about-img{position:relative;overflow:hidden}
+.about-img img{border-radius:var(--rad);aspect-ratio:4/4.6;object-fit:cover;box-shadow:0 30px 60px -25px rgba(22,18,15,.4)}
+.about-img .stamp{position:absolute;right:-1.4rem;bottom:-1.4rem;width:110px;height:110px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--disp);text-align:center;font-size:.72rem;letter-spacing:.18em;line-height:1.5;box-shadow:0 16px 34px -12px rgba(195,39,43,.7);animation:spin 24s linear infinite}
+.about-img .vtxt{position:absolute;left:-2.6rem;top:1rem;writing-mode:vertical-rl;font-family:var(--disp);letter-spacing:.5em;font-size:.95rem;color:var(--red)}
+.about p{color:rgba(22,18,15,.78);margin-bottom:1rem}
+.about-feats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.6rem}
+.about-feats div{border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;font-weight:700;font-size:.92rem;display:flex;gap:.7rem;align-items:center;background:#fff;transition:.35s var(--ease)}
+.about-feats div:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 14px 30px -16px rgba(195,39,43,.4)}
+.about-feats i{font-style:normal;font-size:1.2rem}
+
+/* ---------- menu ---------- */
+.menu{background:var(--broth);padding:7rem 0;position:relative}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem}
+.dish{position:relative;background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--line);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.dish:hover{transform:translateY(-8px) rotate(-.4deg);box-shadow:0 28px 50px -22px rgba(22,18,15,.45)}
+.dish figure{overflow:hidden;aspect-ratio:4/3}
+.dish img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.dish:hover img{transform:scale(1.09)}
+.dish .body{padding:1.2rem 1.3rem 1.4rem}
+.dish h3{font-size:1.2rem;margin-bottom:.3rem}
+.dish p{font-size:.9rem;color:rgba(22,18,15,.7)}
+.dish .tag{position:absolute;top:1rem;left:1rem;background:var(--red);color:#fff;font-size:.68rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;padding:.4rem .8rem;border-radius:999px}
+.dish .tag.gold{background:var(--gold);color:var(--ink)}
+.menu-cta{text-align:center;margin-top:2.8rem}
+
+/* summer special */
+.special{margin-top:4.5rem;background:var(--ink);color:var(--paper);border-radius:26px;display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;position:relative}
+.special::before{content:"夏";position:absolute;right:38%;top:-18%;font-family:var(--disp);font-size:14rem;color:rgba(217,164,65,.08);pointer-events:none}
+.special .txt{padding:3rem;display:flex;flex-direction:column;justify-content:center;gap:.4rem}
+.special h3{font-size:clamp(1.6rem,3vw,2.4rem)}
+.special p{color:rgba(251,245,233,.75);max-width:48ch}
+.special img{width:100%;height:100%;object-fit:cover;min-height:300px}
+.special .lim{color:var(--gold);font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700}
+
+/* ---------- services ---------- */
+.services{padding:7rem 0}
+.serv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.4rem}
+.serv{border:1px solid var(--line);border-radius:20px;padding:2rem 1.6rem;background:#fff;transition:.4s var(--ease);position:relative;overflow:hidden}
+.serv::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:var(--red);transform:scaleX(0);transition:.4s var(--ease)}
+.serv:hover{transform:translateY(-6px);box-shadow:0 22px 44px -20px rgba(22,18,15,.4)}
+.serv:hover::after{transform:scaleX(1)}
+.serv i{font-style:normal;font-size:2rem;display:block;margin-bottom:.8rem}
+.serv h3{font-size:1.15rem;margin-bottom:.4rem}
+.serv p{font-size:.88rem;color:rgba(22,18,15,.68)}
+.amen{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.4rem}
+.amen span{border:1px solid var(--line);border-radius:999px;padding:.5rem 1.1rem;font-size:.82rem;font-weight:700;background:#fff;transition:.3s}
+.amen span:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- rewards ---------- */
+.rewards{background:linear-gradient(120deg,var(--red-deep),var(--red));color:#fff;padding:5.5rem 0;position:relative;overflow:hidden}
+.rewards::before{content:"◎";position:absolute;left:-3rem;top:-5rem;font-size:22rem;opacity:.08}
+.rewards .wrap{display:flex;justify-content:space-between;align-items:center;gap:2.5rem;flex-wrap:wrap}
+.rewards h2{font-size:clamp(1.8rem,3.4vw,2.7rem);max-width:22ch}
+.rewards p{max-width:52ch;color:rgba(255,255,255,.85);margin-top:.6rem}
+.rewards .btn{background:var(--paper);color:var(--ink)}
+.rewards .btn:hover{transform:translateY(-3px);background:#fff}
+
+/* ---------- reviews ---------- */
+.reviews{padding:7rem 0;background:var(--broth)}
+.rev-stage{position:relative;margin-top:2.4rem;min-height:270px}
+.rev{position:absolute;inset:0;opacity:0;transform:translateY(18px);transition:.7s var(--ease);background:#fff;border:1px solid var(--line);border-radius:24px;padding:2.6rem 2.8rem;display:flex;flex-direction:column;gap:1.2rem;pointer-events:none}
+.rev.on{opacity:1;transform:none;pointer-events:auto}
+.rev q{font-family:var(--disp);font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.6;quotes:"「" "」"}
+.rev .who{display:flex;align-items:center;gap:.8rem;font-weight:700}
+.rev .who i{font-style:normal;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--disp)}
+.rev .stars{color:var(--gold);letter-spacing:.2em}
+.rev-dots{display:flex;gap:.6rem;justify-content:center;margin-top:1.6rem}
+.rev-dots button{width:10px;height:10px;border-radius:99px;background:rgba(22,18,15,.25);transition:.35s var(--ease)}
+.rev-dots button.on{width:30px;background:var(--red)}
+
+/* ---------- faq ---------- */
+.faq{padding:7rem 0}
+.faq .wrap{max-width:820px}
+.qa{border:1px solid var(--line);border-radius:16px;margin-top:1rem;background:#fff;overflow:hidden;transition:.3s}
+.qa summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.2rem 1.5rem;font-weight:700;cursor:pointer;font-size:1.02rem}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-family:var(--disp);font-size:1.5rem;color:var(--red);transition:.3s var(--ease)}
+.qa[open]{border-color:var(--red);box-shadow:0 16px 34px -20px rgba(195,39,43,.4)}
+.qa[open] summary::after{transform:rotate(45deg)}
+.qa p{padding:0 1.5rem 1.3rem;color:rgba(22,18,15,.75);font-size:.95rem}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--paper);padding:5rem 0 2rem;position:relative;overflow:hidden}
+footer::before{content:"いただきます";position:absolute;right:2rem;bottom:-1.2rem;font-family:var(--disp);font-size:6rem;color:rgba(251,245,233,.05);white-space:nowrap}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid var(--line-light)}
+.foot-grid h4{font-family:var(--disp);letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;color:var(--gold);margin-bottom:1rem}
+.foot-grid a{display:block;padding:.28rem 0;color:rgba(251,245,233,.72);font-size:.92rem;transition:.25s}
+.foot-grid a:hover{color:var(--red)}
+.foot-brand p{color:rgba(251,245,233,.6);font-size:.9rem;max-width:34ch;margin-top:1rem}
+.socials{display:flex;gap:.8rem;margin-top:1.4rem}
+.socials a{width:42px;height:42px;border:1px solid var(--line-light);border-radius:50%;display:grid;place-items:center;color:rgba(251,245,233,.85);transition:.3s var(--ease)}
+.socials a svg{width:18px;height:18px;fill:currentColor}
+.socials a:hover{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-4px) rotate(-8deg)}
+.foot-base{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.6rem;font-size:.82rem;color:rgba(251,245,233,.5)}
+.powered-by{display:inline-flex;align-items:center;gap:.55rem}
+.powered-by a{display:inline-flex;align-items:center;transition:opacity .25s}
+.powered-by a:hover{opacity:.85}
+.powered-by img{height:22px;width:auto;display:block}
+
+/* to top */
+#toTop{position:fixed;right:1.4rem;bottom:1.4rem;width:52px;height:52px;border-radius:50%;background:var(--red);color:#fff;font-size:1.2rem;box-shadow:0 14px 30px -10px rgba(195,39,43,.7);opacity:0;pointer-events:none;transform:translateY(14px);transition:.4s var(--ease);z-index:90}
+#toTop.show{opacity:1;pointer-events:auto;transform:none}
+#toTop:hover{transform:translateY(-4px)}
+
+/* ---------- responsive ---------- */
+@media(max-width:992px){
+  .nav-links{position:fixed;inset:0;background:var(--paper);flex-direction:column;justify-content:center;gap:1.6rem;font-size:1.3rem;transform:translateX(100%);transition:transform .45s var(--ease)}
+  nav.open .nav-links{transform:none}
+  .burger{display:flex}
+}
+@media(max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;text-align:center;padding-top:7rem}
+  .hero p{margin:0 auto}
+  .hero-ctas,.hero-stats{justify-content:center}
+  .bowl-stage{margin-top:1.5rem}
+  .kanji-bg{opacity:.5}
+  .loc-panel{grid-template-columns:1fr}
+  .loc-photo{min-height:300px}
+  .about .wrap{grid-template-columns:1fr;gap:3rem}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .serv-grid{grid-template-columns:1fr 1fr}
+  .special{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .noren{grid-template-columns:1fr 1fr}
+  .menu-grid{grid-template-columns:1fr}
+  .chip{display:none}
+  .about-img .stamp{right:.6rem;bottom:.6rem}
+  .loc-info{padding:1.8rem 1.4rem}
+  .rev{padding:1.8rem 1.4rem}
+  .rev-stage{min-height:360px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav id="nav">
+  <div class="wrap bar">
+    <a class="logo" href="#top">
+      <img src="assets/logo.jpg" alt="Ramen Hiroshi logo">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#locations">Locations</a>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-red" href="#locations">Order Online</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero" id="top">
+  <div class="kanji-bg" aria-hidden="true">ラーメン</div>
+  <div class="wrap">
+    <div>
+      <span class="hero-tag"><i></i> Est. Bay Area · Four Locations</span>
+      <h1>Savor the Soul of <em>Authentic</em> Japanese Ramen</h1>
+      <p>Rich broths simmered low and slow, noodles pulled fresh, and toppings crafted with care — every bowl at Ramen Hiroshi is a warm trip to Japan.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-red" href="#locations">Order Online →</a>
+        <a class="btn btn-ghost" href="#menu" style="color:var(--paper)">Explore the Menu</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>4</b><span>Bay Area locations</span></div>
+        <div><b>20+</b><span>Handcrafted dishes</span></div>
+        <div><b>7</b><span>Days a week</span></div>
+      </div>
+    </div>
+    <div class="bowl-stage reveal in">
+      <div class="bowl-ring"></div>
+      <div class="orbit-txt" id="orbit"></div>
+      <div class="steam" id="steam"></div>
+      <img class="bowl" src="assets/hero-bowl.jpg" alt="Hiroshi signature Tonkotsu ramen bowl with traditional toppings">
+      <div class="chip c1">🍜 <div>Hiroshi Tonkotsu<br><b>House Signature</b></div></div>
+      <div class="chip c2">🥢 <div>Fresh Noodles<br><b>Made Daily</b></div></div>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</header>
+
+<!-- ========== TICKER ========== -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <div class="ticker-track" id="ticker">
+      <span>Tonkotsu</span><span>Shoyu</span><span>Shio</span><span>Tantanmen</span><span>Yuzu Ramen</span><span>Chicken Karaage</span><span>Gyoza</span><span>Yakitori</span><span>Takoyaki</span><span>Mochi Ice Cream</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== LOCATIONS ========== -->
+<section class="loc-sec" id="locations">
+  <div class="kanji-side" aria-hidden="true">四つの店舗</div>
+  <div class="wrap">
+    <div class="loc-head reveal">
+      <div>
+        <span class="eyebrow">Our Locations</span>
+        <h2 class="sec-title" style="color:var(--paper)">Four Doors. One Broth.</h2>
+      </div>
+      <p>Pick your nearest noren curtain — live opening hours update in real time, so you always know where the broth is simmering right now.</p>
+    </div>
+
+    <div class="noren reveal d1" id="norenTabs" role="tablist"></div>
+
+    <div class="loc-panel reveal d2" id="locPanel">
+      <div class="loc-photo">
+        <span class="loc-badge" id="locBadge"><i></i><span id="locBadgeTxt">—</span></span>
+        <img id="locImg" src="" alt="">
+      </div>
+      <div class="loc-info" id="locInfo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-img reveal">
+      <span class="vtxt" aria-hidden="true">本格的な味</span>
+      <img src="assets/about-interior.jpg" alt="Warm modern interior of Ramen Hiroshi with wooden tables">
+      <div class="stamp">RAMEN<br>HIROSHI<br>ラーメン</div>
+    </div>
+    <div class="reveal d1">
+      <span class="eyebrow">Our Story</span>
+      <h2 class="sec-title">Where Authentic Ramen Meets Rich Flavor</h2>
+      <p>Ramen Hiroshi is a beloved Japanese kitchen serving handcrafted ramen built on slow-simmered broths, fresh ingredients, and traditional recipes inspired by Japan.</p>
+      <p>From our signature tonkotsu to bright yuzu bowls, seasonal specials, and comforting sides, we bring true Japanese comfort food to Walnut Creek, San Ramon, Emeryville, and San Francisco.</p>
+      <div class="about-feats">
+        <div><i>🍲</i> Slow-simmered broths</div>
+        <div><i>🌿</i> Fresh daily ingredients</div>
+        <div><i>🥬</i> Vegetarian options</div>
+        <div><i>✅</i> Health Score: PASS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MENU ========== -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">Crowd Favorites</span>
+      <h2 class="sec-title">A Visual Journey of Japanese Cuisine</h2>
+      <p>A glimpse of our handcrafted ramen and authentic flavors — hover to take a closer look.</p>
+    </div>
+    <div class="menu-grid">
+      <article class="dish reveal"><span class="tag">Signature</span><figure><img src="assets/tonkotsu-ramen.png" alt="Hiroshi Tonkotsu Ramen"></figure><div class="body"><h3>Hiroshi Tonkotsu Ramen</h3><p>Rich pork-bone broth, chashu, soft-boiled egg, black garlic oil, and scallions.</p></div></article>
+      <article class="dish reveal d1"><span class="tag gold">Bright</span><figure><img src="assets/yuzu-shoyu-ramen.png" alt="Yuzu Shoyu Ramen"></figure><div class="body"><h3>Yuzu Shoyu Ramen</h3><p>Light, citrus-kissed shoyu broth with chashu, nori, and fresh scallions.</p></div></article>
+      <article class="dish reveal d2"><span class="tag">Crispy</span><figure><img src="assets/chicken-karaage-ramen.jpg" alt="Chicken Karaage Ramen"></figure><div class="body"><h3>Chicken Karaage Ramen</h3><p>Golden fried chicken over rich broth with fresh green onions.</p></div></article>
+      <article class="dish reveal"><figure><img src="assets/gyoza.jpg" alt="Pan-fried gyoza dumplings"></figure><div class="body"><h3>Handmade Gyoza</h3><p>Pan-fried dumplings with a savory dipping sauce.</p></div></article>
+      <article class="dish reveal d1"><figure><img src="assets/yakitori.jpg" alt="Grilled yakitori skewers"></figure><div class="body"><h3>Yakitori Skewers</h3><p>Traditional charcoal-grilled skewers, seasoned and seared to order.</p></div></article>
+      <article class="dish reveal d2"><figure><img src="assets/takoyaki.jpg" alt="Takoyaki topped with sauce and bonito flakes"></figure><div class="body"><h3>Takoyaki</h3><p>Japanese street-food favorite topped with sauce and dancing bonito flakes.</p></div></article>
+    </div>
+    <div class="menu-cta reveal"><a class="btn btn-red" href="https://ramenhiroshi.com/our-menu/" target="_blank" rel="noopener">See the Full Menu →</a></div>
+
+    <div class="special reveal">
+      <div class="txt">
+        <span class="lim">Limited Time · Summer Special</span>
+        <h3>Hiyashi Chuka — Chilled Summer Noodles</h3>
+        <p>Cool down with our refreshing cold-noodle favorite: chilled noodles topped with fresh vegetables, savory toppings, and rich umami flavor. Light, satisfying, and perfect for warm days.</p>
+        <div style="margin-top:1.2rem"><a class="btn btn-red" href="#locations">Try It Today</a></div>
+      </div>
+      <img src="assets/summer-special.jpeg" alt="Hiyashi Chuka summer special">
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Services</span>
+      <h2 class="sec-title">However You're Hungry</h2>
+    </div>
+    <div class="serv-grid">
+      <div class="serv reveal"><i>🏮</i><h3>Dine-In</h3><p>A warm, inviting space with high ceilings and floor-to-ceiling windows — every dish served hot and fresh.</p></div>
+      <div class="serv reveal d1"><i>🥡</i><h3>Takeout</h3><p>Your favorite bowl, packed with care and ready when you are.</p></div>
+      <div class="serv reveal d2"><i>🛵</i><h3>Delivery</h3><p>Comforting Japanese meals brought straight to your door.</p></div>
+      <div class="serv reveal d3"><i>🎉</i><h3>Catering</h3><p>Fresh ramen, appetizers, and rice dishes for gatherings of any size.</p></div>
+    </div>
+    <div class="amen reveal d2">
+      <span>🥬 Vegetarian options</span><span>✅ Health Score PASS</span><span>🌤 Outdoor seating</span><span>🅿️ Private lot parking</span><span>👨‍👩‍👧 Good for groups</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REWARDS ========== -->
+<section class="rewards">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow" style="color:#F6D8A8">Loyalty</span>
+      <h2>Unlock Rewards with Every Bite</h2>
+      <p>Order directly from our website to earn points, unlock special offers, and access member-only deals. The more you order, the more you earn.</p>
+    </div>
+    <a class="btn reveal d1" href="#locations">Order Now &nbsp;→</a>
+  </div>
+</section>
+
+<!-- ========== REVIEWS ========== -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <span class="eyebrow" style="justify-content:center">Reviews</span>
+      <h2 class="sec-title">What Our Customers Say</h2>
+    </div>
+    <div class="rev-stage reveal d1" id="revStage">
+      <div class="rev on">
+        <span class="stars">★★★★★</span>
+        <q>This restaurant never disappoints — the chicken karaage is a must-try, and the Hiroshi Tonkotsu is my favorite ramen. Service always comes with a smile.</q>
+        <div class="who"><i>R</i> Robert L.</div>
+      </div>
+      <div class="rev">
+        <span class="stars">★★★★★</span>
+        <q>We were craving a light broth noodle soup, and Ramen Hiroshi delivered. The yuzu ramen had a light but flavorful broth with a wonderful little pepper kick. Super friendly service — we'd come back again.</q>
+        <div class="who"><i>T</i> Thomson X.</div>
+      </div>
+      <div class="rev">
+        <span class="stars">★★★★★</span>
+        <q>So delicious! Fast service, a spacious room with tall ceilings and floor-to-ceiling windows, and a Hiroshi Tonkotsu that hit the spot.</q>
+        <div class="who"><i>N</i> Noreen S.</div>
+      </div>
+    </div>
+    <div class="rev-dots" id="revDots"></div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <span class="eyebrow" style="justify-content:center">FAQ</span>
+      <h2 class="sec-title">Frequently Asked Questions</h2>
+    </div>
+    <details class="qa reveal" open><summary>What are you known for?</summary><p>Authentic Japanese ramen — rich tonkotsu, flavorful shoyu and shio, creamy tantanmen, and refreshing yuzu ramen — plus chicken and vegetarian bowls, crispy chicken karaage, wings, handmade gyoza, fresh salads, yakitori skewers, and our signature mochi ice cream.</p></details>
+    <details class="qa reveal d1"><summary>What meals do you serve?</summary><p>We serve lunch and dinner, seven days a week.</p></details>
+    <details class="qa reveal d2"><summary>Do you offer delivery or takeout?</summary><p>Yes — both takeout and delivery are available, along with easy online ordering at every location.</p></details>
+    <details class="qa reveal d3"><summary>Where are you located?</summary><p>You'll find us in San Ramon, Walnut Creek, San Francisco, and Emeryville — serving authentic Japanese ramen across the Bay Area.</p></details>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top" style="color:var(--paper)">
+          <img src="assets/logo.jpg" alt="Ramen Hiroshi logo">
+        </a>
+        <p>Authentic Japanese taste in every bowl. Handcrafted ramen, made fresh across the Bay Area.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/ramenhiroshi.sanramon" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/ramenhiroshi.sf/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#about">About us</a>
+        <a href="#menu">Menu</a>
+        <a href="#locations">Our locations</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <div>
+        <h4>Order Online</h4>
+        <a href="https://order.boons.io/site/ramen-hiroshi-san-ramon/387/y" target="_blank" rel="noopener">San Ramon</a>
+        <a href="https://order.boons.io/site/ramen-hiroshi-walnut-creek/388/y" target="_blank" rel="noopener">Walnut Creek</a>
+        <a href="https://order.boons.io/site/ramen-hiroshi-san-francisco/389/y" target="_blank" rel="noopener">San Francisco</a>
+        <a href="https://order.boons.io/site/ramen-hiroshi-emeryville/391/y" target="_blank" rel="noopener">Emeryville</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="https://www.boons.io/terms-of-service" target="_blank" rel="noopener">Terms</a>
+        <a href="https://www.boons.io/privacy-policy" target="_blank" rel="noopener">Privacy policy</a>
+        <a href="https://www.boons.io/accessibility-statement" target="_blank" rel="noopener">Accessibility</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© <span id="yr"></span> Ramen Hiroshi · All rights reserved</span>
+      <span class="powered-by">Powered by <a href="https://www.boons.io/" target="_blank" rel="noopener" aria-label="boons"><img src="assets/boons-logo.png" alt="boons"></a></span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Scroll to top">↑</button>
+
+<script src="accessibility.js"></script>
+<script>
+/* ================= DATA ================= */
+const LOCATIONS=[
+ {id:"san-ramon",name:"San Ramon",jp:"サンラモン",addr:"6000 Bollinger Canyon Rd #2501, San Ramon, CA 94583",
+  phone:"+1 925-380-6653",order:"https://order.boons.io/site/ramen-hiroshi-san-ramon/387/y",
+  img:"assets/san-ramon.jpg",
+  hours:{0:[["11:30","20:30"]],1:[["11:30","14:30"],["17:00","20:30"]],2:[["11:30","14:30"],["17:00","20:30"]],3:[["11:30","14:30"],["17:00","20:30"]],4:[["11:30","14:30"],["17:00","20:30"]],5:[["11:30","14:30"],["17:00","21:00"]],6:[["11:30","21:00"]]},
+  display:[["Mon – Thu","11:30 AM – 2:30 PM · 5:00 – 8:30 PM"],["Friday","11:30 AM – 2:30 PM · 5:00 – 9:00 PM"],["Saturday","11:30 AM – 9:00 PM"],["Sunday","11:30 AM – 8:30 PM"]],
+  daymap:{1:0,2:0,3:0,4:0,5:1,6:2,0:3}},
+ {id:"walnut-creek",name:"Walnut Creek",jp:"ウォルナットクリーク",addr:"1633 Bonanza St, Walnut Creek, CA 94596",
+  phone:"+1 925-942-0664",order:"https://order.boons.io/site/ramen-hiroshi-walnut-creek/388/y",
+  img:"assets/walnut-creek.jpeg",
+  hours:{0:[["11:30","20:30"]],1:[["11:30","14:30"],["17:00","20:30"]],2:[["11:30","14:30"],["17:00","20:30"]],3:[["11:30","14:30"],["17:00","20:30"]],4:[["11:30","14:30"],["17:00","20:30"]],5:[["11:30","14:30"],["17:00","21:00"]],6:[["11:30","21:00"]]},
+  display:[["Mon – Thu","11:30 AM – 2:30 PM · 5:00 – 8:30 PM"],["Friday","11:30 AM – 2:30 PM · 5:00 – 9:00 PM"],["Saturday","11:30 AM – 9:00 PM"],["Sunday","11:30 AM – 8:30 PM"]],
+  daymap:{1:0,2:0,3:0,4:0,5:1,6:2,0:3}},
+ {id:"san-francisco",name:"San Francisco",jp:"サンフランシスコ",addr:"322 Kearny St, San Francisco, CA 94108",
+  phone:"+1 415-997-0997",order:"https://order.boons.io/site/ramen-hiroshi-san-francisco/389/y",
+  img:"assets/san-francisco.jpeg",
+  hours:{0:[["11:30","14:30"],["15:30","19:00"]],1:[["11:00","20:00"]],2:[["11:00","20:00"]],3:[["11:00","20:00"]],4:[["11:00","21:00"]],5:[["11:00","21:00"]],6:[["11:30","21:00"]]},
+  display:[["Mon – Wed","11:00 AM – 8:00 PM"],["Thu – Fri","11:00 AM – 9:00 PM"],["Saturday","11:30 AM – 9:00 PM"],["Sunday","11:30 AM – 2:30 PM · 3:30 – 7:00 PM"]],
+  daymap:{1:0,2:0,3:0,4:1,5:1,6:2,0:3}},
+ {id:"emeryville",name:"Emeryville",jp:"エメリービル",addr:"5959 Shellmound St #10, Emeryville, CA 94608",
+  phone:"+1 925-380-6653",order:"https://order.boons.io/site/ramen-hiroshi-emeryville/391/y",
+  img:"assets/emeryville.jpeg",
+  hours:{0:[["11:30","19:45"]],1:[["11:30","19:45"]],2:[["11:30","19:45"]],3:[["11:30","19:45"]],4:[["11:30","19:45"]],5:[["11:30","20:00"]],6:[["11:30","20:00"]]},
+  display:[["Sun – Thu","11:30 AM – 7:45 PM"],["Fri – Sat","11:30 AM – 8:00 PM"]],
+  daymap:{0:0,1:0,2:0,3:0,4:0,5:1,6:1}}
+];
+
+/* ================= LOCATIONS UI ================= */
+const tabs=document.getElementById("norenTabs"),
+      panel=document.getElementById("locPanel"),
+      locImg=document.getElementById("locImg"),
+      locInfo=document.getElementById("locInfo"),
+      badge=document.getElementById("locBadge"),
+      badgeTxt=document.getElementById("locBadgeTxt");
+
+function caTime(){
+  const p=new Intl.DateTimeFormat("en-US",{timeZone:"America/Los_Angeles",hour12:false,weekday:"short",hour:"2-digit",minute:"2-digit"}).formatToParts(new Date());
+  const g=t=>p.find(x=>x.type===t).value;
+  const days={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  return{day:days[g("weekday")],mins:(+g("hour")%24)*60+ +g("minute")};
+}
+const toMins=s=>{const[h,m]=s.split(":").map(Number);return h*60+m};
+function isOpen(loc){
+  const{day,mins}=caTime();
+  return (loc.hours[day]||[]).some(([a,b])=>mins>=toMins(a)&&mins<toMins(b));
+}
+function mapsLink(a){return"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("Ramen Hiroshi "+a)}
+
+LOCATIONS.forEach((l,i)=>{
+  const b=document.createElement("button");
+  b.setAttribute("role","tab");
+  b.innerHTML=`<small>${l.jp}</small>${l.name}`;
+  b.onclick=()=>select(i);
+  tabs.appendChild(b);
+});
+
+let current=-1;
+function select(i){
+  if(i===current)return;current=i;
+  const l=LOCATIONS[i];
+  [...tabs.children].forEach((b,j)=>b.classList.toggle("on",j===i));
+  locImg.src=l.img;locImg.alt="Ramen Hiroshi "+l.name;
+  const open=isOpen(l),{day}=caTime(),todayRow=l.daymap[day];
+  badge.className="loc-badge "+(open?"open":"closed");
+  badgeTxt.textContent=open?"Open now":"Closed now";
+  locInfo.innerHTML=`
+    <span class="num">Location 0${i+1} / 04 · ${l.jp}</span>
+    <h3>${l.name}</h3>
+    <p class="addr">${l.addr}</p>
+    <div class="hours">${l.display.map((r,j)=>`<div class="${j===todayRow?"today":""}"><b>${r[0]}${j===todayRow?" · today":""}</b><span>${r[1]}</span></div>`).join("")}</div>
+    <div class="loc-ctas">
+      <a class="btn btn-red" href="${l.order}" target="_blank" rel="noopener">Order Online</a>
+      <a class="btn btn-line" href="tel:${l.phone.replace(/[^+\d]/g,"")}">Call ${l.phone}</a>
+      <a class="btn btn-line" href="${mapsLink(l.addr)}" target="_blank" rel="noopener">Directions ↗</a>
+    </div>`;
+  locInfo.classList.remove("loc-fade");void locInfo.offsetWidth;locInfo.classList.add("loc-fade");
+  panel.classList.remove("show");void panel.offsetWidth;panel.classList.add("show");
+}
+select(0);
+setInterval(()=>{if(current>=0){const l=LOCATIONS[current],o=isOpen(l);badge.className="loc-badge "+(o?"open":"closed");badgeTxt.textContent=o?"Open now":"Closed now";}},60000);
+
+/* ================= HERO EXTRAS ================= */
+const steam=document.getElementById("steam");
+for(let i=0;i<9;i++){
+  const s=document.createElement("i");
+  s.style.left=(Math.random()*120-60)+"px";
+  s.style.animationDelay=(Math.random()*4)+"s";
+  s.style.animationDuration=(3.4+Math.random()*2.2)+"s";
+  s.style.setProperty("--dx",(Math.random()*70-35)+"px");
+  steam.appendChild(s);
+}
+const orbitTxt="AUTHENTIC · JAPANESE · RAMEN · 本格 · ラーメン · ",orbit=document.getElementById("orbit");
+orbitTxt.split("").forEach((ch,i)=>{
+  const s=document.createElement("span");s.textContent=ch;
+  const a=i/orbitTxt.length*360;
+  s.style.transform=`rotate(${a}deg) translateY(calc(-59% - 0px)) `;
+  s.style.transform=`rotate(${a}deg) translate(0,-236px)`;
+  orbit.appendChild(s);
+});
+
+/* duplicate ticker for seamless loop */
+const tk=document.getElementById("ticker");tk.innerHTML+=tk.innerHTML;
+
+/* ================= SCROLL / NAV ================= */
+const nav=document.getElementById("nav"),toTop=document.getElementById("toTop");
+addEventListener("scroll",()=>{
+  toTop.classList.toggle("show",scrollY>700);
+},{passive:true});
+toTop.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+const burger=document.getElementById("burger");
+burger.onclick=()=>nav.classList.toggle("open");
+document.querySelectorAll("#navLinks a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* ================= REVIEWS ROTATOR ================= */
+const revs=[...document.querySelectorAll(".rev")],dots=document.getElementById("revDots");
+revs.forEach((_,i)=>{const d=document.createElement("button");d.setAttribute("aria-label","Review "+(i+1));d.onclick=()=>showRev(i,true);dots.appendChild(d)});
+let ri=0,revTimer;
+function showRev(i){
+  ri=i;revs.forEach((r,j)=>r.classList.toggle("on",j===i));
+  [...dots.children].forEach((d,j)=>d.classList.toggle("on",j===i));
+}
+function autoRev(){revTimer=setInterval(()=>showRev((ri+1)%revs.length),6000)}
+showRev(0);autoRev();
+dots.addEventListener("click",()=>{clearInterval(revTimer);autoRev()});
+
+document.getElementById("yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
