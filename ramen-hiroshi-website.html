@@ -85,21 +85,22 @@ nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .hero-stats div span{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,245,233,.55)}
 
 /* bowl + steam */
-.bowl-stage{position:relative;display:grid;place-items:center;overflow:hidden}
-.bowl-ring{position:absolute;width:118%;aspect-ratio:1;border-radius:50%;border:1px dashed rgba(251,245,233,.22);animation:spin 40s linear infinite}
+.bowl-stage{position:relative;display:grid;place-items:center;width:100%;max-width:min(500px,92vw);margin:0 auto;padding:1.25rem 0;overflow:visible}
+.bowl-visual{position:relative;display:grid;place-items:center;width:min(430px,80vw);aspect-ratio:1;overflow:visible;margin:0 auto}
+.bowl-ring{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1;margin-left:-59%;margin-top:-59%;border-radius:50%;border:1px dashed rgba(251,245,233,.35);animation:spin 40s linear infinite;z-index:1;pointer-events:none}
 .bowl-ring::before{content:"麺 · MEN · 湯 · SOUP · 叉焼 · CHASHU · ";position:absolute;inset:0}
 @keyframes spin{to{transform:rotate(360deg)}}
-.orbit-txt{position:absolute;width:118%;aspect-ratio:1;animation:spin 46s linear infinite reverse;pointer-events:none}
+.orbit-txt{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1;margin-left:-59%;margin-top:-59%;animation:spin 46s linear infinite reverse;pointer-events:none;z-index:2}
 .orbit-txt span{position:absolute;left:50%;top:50%;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(217,164,65,.75);transform-origin:0 0}
-.bowl{width:min(430px,80vw);aspect-ratio:1;border-radius:50%;object-fit:cover;border:10px solid rgba(251,245,233,.06);box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px rgba(251,245,233,.1);animation:float 6s ease-in-out infinite}
+.bowl{position:relative;z-index:3;width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;border:10px solid rgba(251,245,233,.06);box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px rgba(251,245,233,.1);animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-14px)}}
 .steam{position:absolute;bottom:78%;left:50%;pointer-events:none;z-index:3}
 .steam i{position:absolute;bottom:0;width:9px;height:9px;border-radius:50%;background:rgba(251,245,233,.5);filter:blur(6px);opacity:0;animation:rise 4.2s ease-in infinite}
 @keyframes rise{0%{opacity:0;transform:translate(0,0) scale(.6)}15%{opacity:.85}100%{opacity:0;transform:translate(var(--dx,0),-190px) scale(2.6)}}
-.chip{position:absolute;background:rgba(22,18,15,.78);backdrop-filter:blur(8px);border:1px solid var(--line-light);border-radius:14px;padding:.7rem 1rem;font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:.55rem;animation:float 7s ease-in-out infinite}
+.chip{position:absolute;background:rgba(22,18,15,.78);backdrop-filter:blur(8px);border:1px solid var(--line-light);border-radius:14px;padding:.7rem 1rem;font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:.55rem;animation:float 7s ease-in-out infinite;z-index:5;white-space:nowrap}
 .chip b{color:var(--gold)}
-.chip.c1{top:6%;left:-4%;animation-delay:.8s}
-.chip.c2{bottom:10%;right:-6%;animation-delay:1.6s}
+.chip.c1{top:0;left:0;animation-delay:.8s}
+.chip.c2{bottom:4%;right:0;animation-delay:1.6s}
 .scroll-cue{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:5;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(251,245,233,.55);display:flex;flex-direction:column;align-items:center;gap:.5rem}
 .scroll-cue::after{content:"";width:1px;height:38px;background:linear-gradient(var(--red),transparent);animation:drip 1.8s infinite}
 @keyframes drip{from{transform:scaleY(0);transform-origin:top}to{transform:scaleY(1);transform-origin:top}}
@@ -151,12 +152,12 @@ nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 @keyframes locIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
 /* ---------- about ---------- */
-.about{padding:7rem 0;overflow-x:clip}
+.about{padding:7rem 0}
 .about .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:4rem;align-items:center}
-.about-img{position:relative;overflow:hidden}
-.about-img img{border-radius:var(--rad);aspect-ratio:4/4.6;object-fit:cover;box-shadow:0 30px 60px -25px rgba(22,18,15,.4)}
-.about-img .stamp{position:absolute;right:-1.4rem;bottom:-1.4rem;width:110px;height:110px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--disp);text-align:center;font-size:.72rem;letter-spacing:.18em;line-height:1.5;box-shadow:0 16px 34px -12px rgba(195,39,43,.7);animation:spin 24s linear infinite}
-.about-img .vtxt{position:absolute;left:-2.6rem;top:1rem;writing-mode:vertical-rl;font-family:var(--disp);letter-spacing:.5em;font-size:.95rem;color:var(--red)}
+.about-img{position:relative;overflow:visible;padding:1rem 1.5rem 1.5rem 2.5rem}
+.about-img img{border-radius:var(--rad);aspect-ratio:4/4.6;object-fit:cover;box-shadow:0 30px 60px -25px rgba(22,18,15,.4);width:100%}
+.about-img .stamp{position:absolute;right:0;bottom:0;z-index:2;width:110px;height:110px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--disp);text-align:center;font-size:.72rem;letter-spacing:.18em;line-height:1.5;box-shadow:0 16px 34px -12px rgba(195,39,43,.7);animation:spin 24s linear infinite}
+.about-img .vtxt{position:absolute;left:0;top:1rem;writing-mode:vertical-rl;font-family:var(--disp);letter-spacing:.5em;font-size:.95rem;color:var(--red)}
 .about p{color:rgba(22,18,15,.78);margin-bottom:1rem}
 .about-feats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.6rem}
 .about-feats div{border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;font-weight:700;font-size:.92rem;display:flex;gap:.7rem;align-items:center;background:#fff;transition:.35s var(--ease)}
@@ -281,6 +282,7 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
   .noren{grid-template-columns:1fr 1fr}
   .menu-grid{grid-template-columns:1fr}
   .chip{display:none}
+  .about-img{padding:1rem .6rem 1.5rem 1rem}
   .about-img .stamp{right:.6rem;bottom:.6rem}
   .loc-info{padding:1.8rem 1.4rem}
   .rev{padding:1.8rem 1.4rem}
@@ -331,10 +333,12 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
       </div>
     </div>
     <div class="bowl-stage reveal in">
-      <div class="bowl-ring"></div>
-      <div class="orbit-txt" id="orbit"></div>
-      <div class="steam" id="steam"></div>
-      <img class="bowl" src="assets/hero-bowl.jpg" alt="Hiroshi signature Tonkotsu ramen bowl with traditional toppings">
+      <div class="bowl-visual">
+        <div class="bowl-ring"></div>
+        <div class="orbit-txt" id="orbit"></div>
+        <div class="steam" id="steam"></div>
+        <img class="bowl" src="assets/hero-bowl.jpg" alt="Hiroshi signature Tonkotsu ramen bowl with traditional toppings">
+      </div>
       <div class="chip c1">🍜 <div>Hiroshi Tonkotsu<br><b>House Signature</b></div></div>
       <div class="chip c2">🥢 <div>Fresh Noodles<br><b>Made Daily</b></div></div>
     </div>
