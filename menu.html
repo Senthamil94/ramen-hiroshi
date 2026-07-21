@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Menu — Ramen Hiroshi | Authentic Japanese Ramen</title>
+<meta name="description" content="Explore the Ramen Hiroshi menu — signature tonkotsu, shoyu, shio, miso and yuzu ramen, izakaya starters, teishoku sets, yakitori and Japanese drinks.">
+<link rel="icon" href="assets/fav-icon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16100c;          /* sumi lacquer black */
+  --ink-2:#211812;
+  --ink-3:#2a1f16;
+  --aka:#b5121b;          /* hiroshi red */
+  --aka-deep:#8c0e15;
+  --kome:#f6f0e2;         /* rice-paper cream */
+  --kome-dim:#cfc4ac;
+  --kin:#c9a227;          /* gold leaf */
+  --line:rgba(246,240,226,.13);
+  --ticket:#fbf6e9;
+  --ticket-ink:#221a12;
+  --sb-w:300px;
+  --disp:'Shippori Mincho', serif;
+  --body:'Zen Kaku Gothic New', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--kome);font-family:var(--body);font-weight:300;line-height:1.7;overflow-x:hidden}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+::selection{background:var(--aka);color:#fff}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--body)}
+h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.25}
+
+/* ============ SIDEBAR ============ */
+.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sb-w);z-index:60;
+  background:linear-gradient(180deg,#1b1410,#16100c);
+  border-right:1px solid var(--line);
+  display:flex;flex-direction:column;
+  padding:34px 0 0;
+  overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--ink-3) transparent;
+  transition:transform .45s cubic-bezier(.16,1,.3,1);
+}
+.sidebar::-webkit-scrollbar{width:5px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--ink-3);border-radius:4px}
+/* red accent thread down the edge */
+.sidebar::after{content:"";position:absolute;top:0;right:0;bottom:0;width:3px;background:linear-gradient(var(--aka),transparent 40%,transparent 60%,var(--aka))}
+
+.sb-brand{display:flex;align-items:center;gap:14px;padding:0 28px 26px}
+.sb-brand img{width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--aka)}
+.sb-brand .n{font-family:var(--disp);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase}
+.sb-brand .j{display:block;font-size:.62rem;letter-spacing:.46em;color:var(--kin);margin-top:3px}
+
+.sb-title{
+  padding:16px 28px 14px;border-top:1px solid var(--line);
+  font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;color:var(--kin);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.sb-title .jp{font-family:var(--disp);font-size:.9rem;letter-spacing:.2em}
+
+/* search */
+.sb-search{padding:4px 28px 16px}
+.sb-search .box{position:relative}
+.sb-search input{
+  width:100%;background:var(--ink-2);border:1px solid var(--line);color:var(--kome);
+  font-family:var(--body);font-weight:300;font-size:.86rem;
+  padding:11px 38px 11px 14px;border-radius:4px;outline:none;transition:border-color .3s;
+}
+.sb-search input::placeholder{color:#7d7259}
+.sb-search input:focus{border-color:var(--kin)}
+.sb-search .ic{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--kin);font-family:var(--disp);pointer-events:none}
+
+/* category nav */
+.sb-nav{display:flex;flex-direction:column;padding:2px 16px 18px}
+.sb-link{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 12px;border-radius:5px;cursor:pointer;
+  color:var(--kome-dim);transition:background .3s,color .3s;
+  position:relative;border:0;background:none;text-align:left;width:100%;
+}
+.sb-link .kj{
+  width:38px;height:38px;flex:0 0 38px;border:1px solid var(--line);border-radius:5px;
+  display:grid;place-items:center;font-family:var(--disp);font-size:1.05rem;color:var(--kin);
+  transition:.3s;background:var(--ink-2);
+}
+.sb-link .lbl{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;flex:1}
+.sb-link .cnt{
+  font-size:.66rem;color:#7d7259;border:1px solid var(--line);border-radius:999px;
+  padding:2px 9px;transition:.3s;font-variant-numeric:tabular-nums;
+}
+.sb-link:hover{background:var(--ink-2);color:var(--kome)}
+.sb-link:hover .kj{border-color:var(--kin)}
+.sb-link.active{background:var(--aka);color:#fff}
+.sb-link.active .kj{background:rgba(0,0,0,.22);border-color:transparent;color:#fff}
+.sb-link.active .cnt{color:#fff;border-color:rgba(255,255,255,.4)}
+.sb-link.active::before{
+  content:"";position:absolute;left:-16px;top:18%;bottom:18%;width:3px;background:var(--kin);border-radius:2px;
+}
+
+/* sidebar footer */
+.sb-foot{margin-top:auto;border-top:1px solid var(--line);padding:22px 28px 26px;display:flex;flex-direction:column;gap:12px}
+.sb-cta{
+  display:block;text-align:center;background:var(--aka);border:1px solid var(--aka);color:#fff;
+  font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;font-weight:500;
+  padding:13px 10px;transition:.3s;border-radius:3px;
+}
+.sb-cta:hover{background:transparent;color:var(--kome)}
+.sb-home{
+  display:block;text-align:center;border:1px solid var(--line);color:var(--kome-dim);
+  font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;
+  padding:12px 10px;transition:.3s;border-radius:3px;
+}
+.sb-home:hover{border-color:var(--kin);color:var(--kin)}
+.sb-note{text-align:center;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:#6c614b;margin-top:4px}
+.sb-note b{color:var(--aka);font-weight:500;font-family:var(--disp)}
+
+/* ============ MOBILE TOP BAR ============ */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;z-index:55;
+  background:rgba(22,16,12,.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  align-items:center;justify-content:space-between;padding:12px 18px;
+}
+.topbar .tb-brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);letter-spacing:.14em;font-size:.95rem;text-transform:uppercase}
+.topbar .tb-brand img{width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 2px var(--aka)}
+.tb-btn{background:var(--ink-2);border:1px solid var(--line);color:var(--kome);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding:10px 16px;border-radius:4px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.tb-btn .jp{font-family:var(--disp);color:var(--kin)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:58;opacity:0;pointer-events:none;transition:opacity .4s}
+body.sb-open .scrim{opacity:1;pointer-events:auto}
+
+/* ============ MAIN ============ */
+.main{margin-left:var(--sb-w);position:relative;z-index:2}
+
+/* hero */
+.m-hero{
+  padding:88px 5vw 60px;position:relative;overflow:hidden;
+  background:radial-gradient(900px 480px at 30% -10%,#2b1c12,var(--ink) 72%);
+  border-bottom:1px solid var(--line);
+}
+.m-hero .kanji{
+  position:absolute;font-family:var(--disp);font-weight:800;font-size:clamp(9rem,20vw,17rem);
+  color:transparent;-webkit-text-stroke:1px rgba(246,240,226,.06);
+  top:50%;right:2vw;transform:translateY(-50%);pointer-events:none;line-height:1;user-select:none;
+}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.7rem;letter-spacing:.42em;text-transform:uppercase;color:var(--kin);margin-bottom:16px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--kin)}
+.m-hero h1{font-size:clamp(2.2rem,4.4vw,3.8rem);font-weight:700}
+.m-hero h1 span{color:var(--aka)}
+.m-hero p{max-width:560px;margin-top:16px;color:var(--kome-dim);font-size:.98rem}
+.m-hero .stats{display:flex;gap:34px;margin-top:34px;flex-wrap:wrap}
+.m-hero .stats div{border-left:1px solid var(--line);padding-left:14px}
+.m-hero .stats .n{font-family:var(--disp);font-size:1.35rem}
+.m-hero .stats .l{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--kome-dim)}
+
+/* noren strip */
+.noren{height:50px;position:relative;overflow:hidden;background:var(--aka)}
+.noren::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(20% - 1px),rgba(22,16,12,.35) calc(20% - 1px) 20%)}
+.noren::after{
+  content:"御 品 書 · お し な が き · 御 品 書 · お し な が き · 御 品 書 · お し な が き · 御 品 書 · お し な が き";
+  position:absolute;inset:0;display:flex;align-items:center;white-space:nowrap;
+  font-family:var(--disp);color:rgba(255,255,255,.85);letter-spacing:.7em;font-size:.8rem;
+  animation:marquee 42s linear infinite;
+}
+
+/* categories */
+.wrap{max-width:1180px;margin:0 auto;padding:0 4vw}
+.cat{scroll-margin-top:70px;padding:74px 0 66px}
+.cat + .cat{border-top:1px solid var(--line)}
+.cat-head{display:flex;align-items:baseline;gap:20px;margin-bottom:10px;flex-wrap:wrap}
+.cat-head .jp{
+  font-family:var(--disp);font-size:1.6rem;color:#fff;background:var(--aka);
+  width:56px;height:56px;display:grid;place-items:center;border-radius:6px;
+  transform:rotate(-4deg);box-shadow:0 10px 26px rgba(181,18,27,.35);align-self:center;
+}
+.cat-head h2{font-size:clamp(1.6rem,2.8vw,2.4rem)}
+.cat-head .note{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--kin);margin-left:auto;border:1px solid var(--line);padding:7px 14px;border-radius:999px}
+.cat-sub{color:var(--kome-dim);max-width:620px;margin:10px 0 40px;font-size:.93rem}
+
+/* tickets */
+.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ticket{
+  position:relative;background:var(--ticket);color:var(--ticket-ink);
+  display:flex;flex-direction:column;overflow:hidden;border-radius:6px;
+  box-shadow:0 14px 36px rgba(0,0,0,.45);
+  transition:transform .35s,box-shadow .35s;
+}
+.ticket:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 28px 56px rgba(0,0,0,.6)}
+.ticket::before,.ticket::after{
+  content:"";position:absolute;top:0;bottom:0;width:10px;z-index:3;
+  background-image:radial-gradient(circle at 50% 6px,var(--ink) 5px,transparent 5.5px);
+  background-size:10px 22px;background-repeat:repeat-y;
+}
+.ticket::before{left:-4px}
+.ticket::after{right:-4px}
+.t-img{height:184px;overflow:hidden;position:relative}
+.t-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.ticket:hover .t-img img{transform:scale(1.08)}
+.t-img .badge{position:absolute;top:12px;left:12px;background:var(--aka);color:#fff;font-family:var(--disp);font-size:.7rem;letter-spacing:.22em;padding:6px 12px;border-radius:2px}
+.t-body{padding:19px 24px 20px;display:flex;flex-direction:column;gap:9px;flex:1}
+.t-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.t-top h3{font-size:1.08rem;font-weight:700}
+.price{font-family:var(--disp);font-weight:700;font-size:1.12rem;color:var(--aka-deep);white-space:nowrap}
+.t-body p{font-size:.84rem;color:#5b5140;flex:1}
+.t-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px dashed #cbbf9f;padding-top:11px;
+  font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:#9a8d70;
+}
+.t-foot .stamp{font-family:var(--disp);color:var(--aka);font-size:.88rem;letter-spacing:.1em;transform:rotate(-4deg)}
+.tickets.compact{grid-template-columns:repeat(4,1fr)}
+.tickets.compact .t-body{padding:17px 22px}
+.tickets.compact p{flex:none}
+
+/* add-ons */
+.addons{margin-top:32px;border:1px dashed var(--line);padding:22px 26px;background:var(--ink-2);border-radius:6px}
+.addons h3{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--kin);font-family:var(--body);font-weight:500;margin-bottom:13px}
+.addons .row{display:flex;flex-wrap:wrap;gap:10px}
+.addons span{font-size:.76rem;border:1px solid var(--line);padding:8px 15px;border-radius:999px;color:var(--kome-dim);transition:.3s}
+.addons span:hover{border-color:var(--aka);color:var(--kome)}
+.addons b{color:var(--kin);font-weight:500}
+
+/* search empty state */
+.no-hit{display:none;border:1px dashed var(--line);border-radius:6px;padding:48px 24px;text-align:center;color:var(--kome-dim);margin:60px 0}
+.no-hit .jp{font-family:var(--disp);font-size:2rem;color:var(--aka);margin-bottom:8px}
+body.searching .cat .cat-sub,body.searching .addons{display:none}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+/* cta + footer */
+.cta-band{background:var(--aka);text-align:center;position:relative;overflow:hidden}
+.cta-band .inner{padding:74px 5vw;position:relative;z-index:2}
+.cta-band h2{font-size:clamp(1.7rem,3vw,2.6rem);color:#fff;margin-bottom:10px}
+.cta-band p{color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 28px}
+.cta-band .btn{display:inline-block;background:var(--ink);border:1px solid var(--ink);color:var(--kome);font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;padding:14px 34px;transition:.3s}
+.cta-band .btn:hover{background:transparent;border-color:#fff;color:#fff}
+.cta-band .bgk{position:absolute;font-family:var(--disp);font-weight:800;font-size:15rem;line-height:1;color:rgba(255,255,255,.06);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap}
+footer{background:#100c09;border-top:1px solid var(--line)}
+.f-bottom{padding:26px 4vw;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.74rem;color:var(--kome-dim)}
+.f-bottom a{color:var(--kin)}
+
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1200px){.tickets{grid-template-columns:repeat(2,1fr)}.tickets.compact{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:940px){
+  :root{--sb-w:280px}
+  .sidebar{transform:translateX(-100%);box-shadow:30px 0 80px rgba(0,0,0,.5)}
+  body.sb-open .sidebar{transform:none}
+  .main{margin-left:0}
+  .topbar{display:flex}
+  .m-hero{padding-top:120px}
+  .tickets.compact{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .tickets,.tickets.compact{grid-template-columns:1fr}
+  .cat-head .note{margin-left:0}
+  .cta-band .bgk{font-size:7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- mobile top bar -->
+<div class="topbar">
+  <a class="tb-brand" href="index.html">
+    <img src="assets/logo.jpg" alt="Ramen Hiroshi logo">
+    Ramen Hiroshi
+  </a>
+  <button class="tb-btn" onclick="document.body.classList.toggle('sb-open')" aria-label="Open menu categories"><span class="jp">品</span> Categories</button>
+</div>
+<div class="scrim" onclick="document.body.classList.remove('sb-open')"></div>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar" aria-label="Menu navigation">
+  <a class="sb-brand" href="index.html">
+    <img src="assets/logo.jpg" alt="Ramen Hiroshi logo">
+    <span><span class="n">Ramen Hiroshi</span><span class="j">らーめん ひろし</span></span>
+  </a>
+
+  <div class="sb-title"><span>Search the Menu</span><span class="jp">探</span></div>
+  <div class="sb-search">
+    <div class="box">
+      <input id="q" type="search" placeholder="Try &quot;tonkotsu&quot;, &quot;gyoza&quot;…" autocomplete="off" aria-label="Search menu items">
+      <span class="ic">品</span>
+    </div>
+  </div>
+
+  <div class="sb-title"><span>Categories</span><span class="jp">御品書</span></div>
+  <nav class="sb-nav" id="sbnav">
+    <button class="sb-link active" data-cat="ramen"><span class="kj">麺</span><span class="lbl">Signature Ramen</span><span class="cnt">8</span></button>
+    <button class="sb-link" data-cat="chicken"><span class="kj">鶏</span><span class="lbl">Chicken Ramen</span><span class="cnt">4</span></button>
+    <button class="sb-link" data-cat="starters"><span class="kj">前</span><span class="lbl">Starters &amp; Salads</span><span class="cnt">9</span></button>
+    <button class="sb-link" data-cat="fried"><span class="kj">揚</span><span class="lbl">Fried</span><span class="cnt">10</span></button>
+    <button class="sb-link" data-cat="teishoku"><span class="kj">膳</span><span class="lbl">Teishoku Sets</span><span class="cnt">4</span></button>
+    <button class="sb-link" data-cat="yakitori"><span class="kj">串</span><span class="lbl">Yakitori</span><span class="cnt">13</span></button>
+    <button class="sb-link" data-cat="drinks"><span class="kj">飲</span><span class="lbl">Drinks</span><span class="cnt">13</span></button>
+  </nav>
+
+  <div class="sb-foot">
+    <a class="sb-cta" href="index.html#locations">Order Online</a>
+    <a class="sb-home" href="index.html">← Back to Home</a>
+    <div class="sb-note"><b>一杯入魂</b> · Soul in every bowl</div>
+  </div>
+</aside>
+
+<!-- ============ MAIN ============ -->
+<div class="main">
+
+  <section class="m-hero">
+    <span class="kanji" aria-hidden="true">品</span>
+    <span class="eyebrow">御品書 · Oshinagaki</span>
+    <h1>The Hiroshi <span>Menu</span></h1>
+    <p>Presented as meal tickets from the shokkenki machine, the way ramen shops in Japan do it. Browse by category from the sidebar, then order at your nearest location.</p>
+    <div class="stats">
+      <div><div class="n">61</div><div class="l">Dishes &amp; Drinks</div></div>
+      <div><div class="n">7</div><div class="l">Categories</div></div>
+      <div><div class="n">12hr</div><div class="l">Simmered Broth</div></div>
+    </div>
+  </section>
+
+  <div class="noren" aria-hidden="true"></div>
+
+  <main class="wrap">
+
+    <!-- RAMEN -->
+    <section class="cat" id="ramen">
+      <div class="cat-head rv"><span class="jp">麺</span><h2>Signature Ramen</h2><span class="note">The Heart of Hiroshi</span></div>
+      <p class="cat-sub rv">Slow-simmered broths, noodles matched to each bowl, and toppings prepped fresh every morning.</p>
+      <div class="tickets">
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">看板 · Signature</span><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Hiroshi-Tonkotsu-Ramen-roid1qa2828uf48nesoefd2sm1syrvfzfl6oorhac4.avif" alt="Hiroshi Tonkotsu Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Hiroshi Tonkotsu</h3><span class="price">$18</span></div>
+            <p>Rich pork-bone broth with braised pork belly, marinated egg and fresh toppings. Hakata-style thin noodles crafted to complement the deep, savory flavor.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/2026/06/Shio-Ramen.avif" alt="Tonkotsu Shouyu Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Tonkotsu Shouyu</h3><span class="price">$18</span></div>
+            <p>Soy-based tonkotsu with braised pork belly, egg and fresh toppings. Thin straight noodles for a rich, balanced flavor.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Shio-Ramen-roid1lkv9w2et2fh68n9kw9hn4g4pdxbqxx9ado978.avif" alt="Shio Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Shio Ramen</h3><span class="price">$17</span></div>
+            <p>Sea-salt chicken broth with braised pork belly, egg, fish cake and seaweed — light, clean and savory.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Shoyu-Ramen-roid1ngjnk4zgacqv9gipvsetw6v4s4sf7888xlgus.avif" alt="Shouyu Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Shouyu Ramen</h3><span class="price">$17</span></div>
+            <p>Soy-sauce chicken broth with braised pork belly, marinated soft-boiled egg, lotus root, fish cake, bamboo shoot, green onion and dried seaweed.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">柚子 · Yuzu</span><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Yuzu-Ramen-roid1mipgq3p4oe40r1w5e0y8ibhx31232kqrnmv10.avif" alt="Yuzu Shoyu Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Yuzu Shoyu</h3><span class="price">$18</span></div>
+            <p>Soy-sauce chicken broth brightened with Japanese yuzu citrus — pork belly, egg, lotus root, bok choy, bean sprouts and seaweed.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Miso-Ramen1-roid1r7wewa4qq7a9b30zuu97fobzkjprpu661fw5w.avif" alt="Miso Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Miso Ramen</h3><span class="price">$19</span></div>
+            <p>Chicken-and-pork broth blended with a variety of miso, topped with pork belly, egg, corn, cabbage, bean sprouts, chives and green onion.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">辛 · Spicy</span><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Tantanmen-roid1pc8187k3ia0ka9ruvbc0nxlk6c93gj77hioic.avif" alt="Tantanmen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Tantanmen</h3><span class="price">$19</span></div>
+            <p>Creamy sesame tonkotsu broth with spicy ground pork, egg, black mushroom, bok choy, bean sprouts and onion leek.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">自由 · Build Your Own</span><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/o-21-rks69m5qpx9w97l7s2u13f85bc8ridkj42x4oeb0no.jpg" alt="Build your own ramen bowl"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Build-Your-Own Ramen</h3><span class="price">Ask</span></div>
+            <p>Choose your broth, your noodle and your toppings — your perfect bowl, your rules.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="addons rv">
+        <h3>替玉 &amp; Broth Add-Ons</h3>
+        <div class="row">
+          <span>Extra Thin Straight Noodle</span><span>Extra Thick Curly Noodle</span>
+          <span>Extra Tonkotsu Broth</span><span>Extra Tonkotsu Shoyu Broth</span>
+          <span>Extra Shio Broth</span><span>Extra Shouyu Broth</span>
+          <span>Extra Yuzu Broth</span><span>Extra Miso (Pork-Chicken) Broth</span>
+          <span><b>Cha-Shu +$10</b> — signature braised pork belly slices</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHICKEN RAMEN -->
+    <section class="cat" id="chicken">
+      <div class="cat-head rv"><span class="jp">鶏</span><h2>Chicken Ramen</h2><span class="note">Lighter, Just as Deep</span></div>
+      <p class="cat-sub rv">Clean chicken broths with the same care, depth and fresh toppings as our signature bowls.</p>
+      <div class="tickets">
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Shio-Chicken-Ramen-roid1oedue69rwbdprv5adjvfa28ch8irbvpq7k2ok.avif" alt="Shio Chicken Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Shio Chicken</h3><span class="price">$17</span></div>
+            <p>Sea-salt chicken broth with braised chashu, marinated egg, lotus root, fish cake, bamboo shoot and seaweed.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Shoyu-Chicken-Ramen-rn2fdlvycmi15l1jkhnrwc03aqyxy2v5fbd23lwj2s.jpg" alt="Shoyu Chicken Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Shoyu Chicken</h3><span class="price">$17</span></div>
+            <p>Soy-sauce chicken broth topped with braised chicken chashu, marinated egg, lotus root, fish cake and green onion.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">柚子 · Yuzu</span><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Yuzu-Ramen-roid1mipgq3p4oe40r1w5e0y8ibhx31232kqrnmv10.avif" alt="Yuzu Shoyu Chicken Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Yuzu Shoyu Chicken</h3><span class="price">$18</span></div>
+            <p>Soy-sauce chicken broth with yuzu citrus, braised chicken, egg, bok choy, bean sprouts and dried seaweed.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Miso-Chicken-Ramen-roid1oedue69rwbdprv5adjvfa28ch8irbvpq7k2ok.avif" alt="Miso Chicken Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Miso Chicken</h3><span class="price">$19</span></div>
+            <p>Chicken broth blended with a variety of miso, topped with chicken chashu, egg, corn, cabbage, bean sprouts and chives.</p>
+            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- STARTERS -->
+    <section class="cat" id="starters">
+      <div class="cat-head rv"><span class="jp">前</span><h2>Starters &amp; Salads</h2><span class="note">Izakaya Style</span></div>
+      <p class="cat-sub rv">Small plates made fresh daily — the perfect opening act for your bowl.</p>
+      <div class="tickets">
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Edamame-roqzrpoft74ufd5qolw5hietuf3fp1p8fvwbzmv2y8.avif" alt="Edamame"></div>
+          <div class="t-body"><div class="t-top"><h3>Edamame</h3><span class="price">$5</span></div><p>Boiled soybeans with sea salt.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Horenso-Gomaae-roqzqax5oj30680ucw1eyh3rvcgs0kfau34mou02ac.avif" alt="Horenso Goma Ae"></div>
+          <div class="t-body"><div class="t-top"><h3>Horenso Goma Ae</h3><span class="price">$6</span></div><p>Blanched spinach salad in nutty sesame sauce.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-body" style="padding-top:24px"><div class="t-top"><h3>Kyuuri Tataki</h3><span class="price">$6</span></div><p>Japanese cucumber mildly seasoned with shio koji.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Renkon-Mentai-Ae-roidlf0dd571l3n6gb13ne8cikrpznllh12sjeag0k.avif" alt="Renkon Mentai Ae"></div>
+          <div class="t-body"><div class="t-top"><h3>Renkon Mentai Ae</h3><span class="price">$8</span></div><p>Lotus root in a spicy cod-roe dressing.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Tsukemono-Moriawase-roqzqzcym80gk31ce6lpraxrbd4bkp4blg3960ztsk.avif" alt="Tsukemono Moriawase"></div>
+          <div class="t-body"><div class="t-top"><h3>Tsukemono Moriawase</h3><span class="price">$9</span></div><p>Assorted house-pickled vegetables.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Arabiki-Sausage-ror0g2nuxmhdbjrvfmz2lv3w2x0w6nessgkcqsqrow.avif" alt="Arabiki Sausage"></div>
+          <div class="t-body"><div class="t-top"><h3>Arabiki Sausage</h3><span class="price">$9</span></div><p>Japanese kurobuta pork sausage, grilled and juicy.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Daikon-Salad-rn1sio6qwbyojseixrsdwzy0gf48xtv6a5reci2ums.jpg" alt="Daikon Salad"></div>
+          <div class="t-body"><div class="t-top"><h3>Daikon Salad</h3><span class="price">$10</span></div><p>Japanese radish salad with sea salt–sesame oil dressing.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/House-Salad-ror00ig1wr249r6zqswjjed0505am7yckm7hc0v4pg.avif" alt="House Salad"></div>
+          <div class="t-body"><div class="t-top"><h3>House Salad</h3><span class="price">$10</span></div><p>Spring greens with soft-boiled egg slices in yuzu-mayo dressing.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">看板 · Signature</span><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Cha-Shu-roidpusxmz9set72j83of9wpi2w4c77yqzzc4fpims.avif" alt="Cha-Shu braised pork belly"></div>
+          <div class="t-body"><div class="t-top"><h3>Cha-Shu</h3><span class="price">$10</span></div><p>Our signature braised pork belly slices.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FRIED -->
+    <section class="cat" id="fried">
+      <div class="cat-head rv"><span class="jp">揚</span><h2>Fried</h2><span class="note">Crisp &amp; Golden</span></div>
+      <p class="cat-sub rv">Golden, crunchy and made to order — from Hiroshi's famous karaage to street-festival takoyaki.</p>
+      <div class="tickets">
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">名物 · Famous</span><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Chicken-Karaage-ror0n95h9g6v645ry4sld5rhjm1zul8k16fec1585w.avif" alt="Chicken Karaage"></div>
+          <div class="t-body"><div class="t-top"><h3>Chicken Karaage</h3><span class="price">$10</span></div><p>Hiroshi's famous marinated fried chicken pieces.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Hanetsuki-Gyoza-ror0r659qljvjmgz2tqmr66mner1x6sakka8bjc68k.avif" alt="Hanetsuki Gyoza"></div>
+          <div class="t-body"><div class="t-top"><h3>Hanetsuki Gyouza</h3><span class="price">$10</span></div><p>House-made pork dumplings with a crispy thin "wing" crust, served with soy-chili sauce.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Deep-Fried-Gyoza-ror0gvsuthl9bgljphki95r6hv19t9mh8gsemdjkc0.avif" alt="Deep Fried Gyoza"></div>
+          <div class="t-body"><div class="t-top"><h3>Deep Fried Gyouza</h3><span class="price">$10</span></div><p>Pork dumplings fried until deeply golden and crisp.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Takoyaki-ror0xp4x2slx0c69ir88ux01205nicdm7ox3okm10w.avif" alt="Takoyaki"></div>
+          <div class="t-body"><div class="t-top"><h3>Takoyaki</h3><span class="price">$9</span></div><p>Street-festival octopus balls topped with bonito flakes, seaweed powder and red ginger.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Salt-Pepper-Chicken-Wings-ror0ko3gcgru2x3klmhespd0mqdhtdnk37dt7hxh9s.avif" alt="Salt and Pepper Chicken Wings"></div>
+          <div class="t-body"><div class="t-top"><h3>Salt &amp; Pepper Wings</h3><span class="price">$9</span></div><p>Juicy fried wings sprinkled with Japanese salt and pepper.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">辛 · Spicy</span><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Spicy-Chicken-Wings-ror0splqxtnskm8f2zpmca6tp55pjbwgg6rvmv1y1g.avif" alt="Spicy Chicken Wings"></div>
+          <div class="t-body"><div class="t-top"><h3>Spicy Chicken Wings</h3><span class="price">$9</span></div><p>Fried wings tossed in our original spicy sauce.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Ika-Geso-Age-ror0hm4c4ulacjjbfsy26z434nfjssiyo32024gjhs.avif" alt="Ika Geso Age"></div>
+          <div class="t-body"><div class="t-top"><h3>Ika Geso Age</h3><span class="price">$10</span></div><p>Crispy fried squid legs.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-body" style="padding-top:24px"><div class="t-top"><h3>Nankotsu Karaage</h3><span class="price">$9</span></div><p>Fried chicken cartilage — crunchy izakaya classic.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Renkon-Chips-ror0rwgr1yjwkpeqt546ozjja75bwpos06jtra95ec.avif" alt="Renkon Chips"></div>
+          <div class="t-body"><div class="t-top"><h3>Renkon Chips</h3><span class="price">$8</span></div><p>Lotus root chips, fried thin and crisp.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Mentai-Potato-ror0tfx896ntlp66tb36a3jqbxjziusxvt1h2lyx78.avif" alt="Mentai Potato"></div>
+          <div class="t-body"><div class="t-top"><h3>Mentai Potato</h3><span class="price">$8</span></div><p>Fried potatoes with spicy cod-roe sauce.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TEISHOKU -->
+    <section class="cat" id="teishoku">
+      <div class="cat-head rv"><span class="jp">膳</span><h2>Teishoku Sets</h2><span class="note">The Complete Meal</span></div>
+      <p class="cat-sub rv">Traditional Japanese set meals — a main dish served with steamed rice, miso soup and a fresh side salad.</p>
+      <div class="tickets">
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/IMG_0550-1-roshf7bdiv2sn6dmkw9yt7q3srg5hqwix1wmtu2l5g.jpeg" alt="Katsu Teishoku"></div>
+          <div class="t-body"><div class="t-top"><h3>Katsu Teishoku</h3><span class="price">$20</span></div><p>Breaded pork or chicken cutlet with steamed rice, miso soup and fresh side salad.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/38EF0078-E1C7-405A-9235-CCF7E646DDF1_L0_001-8_2_2024-5_25_48-PM-rosh0alj4go2hu18my9zrh5wlqxkekpsj9edsu6duc.jpeg" alt="Saba no Teishoku"></div>
+          <div class="t-body"><div class="t-top"><h3>Saba no Teishoku</h3><span class="price">$20</span></div><p>Grilled mackerel with steamed rice, miso soup and a fresh side salad.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/IMG_0503-roshgl4tl2yzqid9hzt6zd5ja6mltpearwhd9i0pzo.jpeg" alt="Karaage Teishoku"></div>
+          <div class="t-body"><div class="t-top"><h3>Karaage Teishoku</h3><span class="price">$18</span></div><p>Japanese-style marinated fried chicken pieces with rice, miso soup and side salad.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/3CFEE9F6-FFE1-42C3-B045-217DEAD07423_L0_001-8_2_2024-5_44_39-PM-rosh1c72pu3je8imjej2j7ocd5s8ygv20fhszwmmxg.jpeg" alt="Gindara no Kasuzuke"></div>
+          <div class="t-body"><div class="t-top"><h3>Gindara no Kasuzuke</h3><span class="price">$20</span></div><p>Miso-marinated black cod grilled to perfection, with rice, miso soup and side salad.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- YAKITORI -->
+    <section class="cat" id="yakitori">
+      <div class="cat-head rv"><span class="jp">串</span><h2>Yakitori</h2><span class="note">Fri – Sun · 5:30–8:30 PM</span></div>
+      <p class="cat-sub rv">Charcoal-grilled skewers, $4 each — served weekend evenings only, the way a true yakitori-ya does it.</p>
+      <div class="tickets compact">
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Momo</h3><span class="price">$4</span></div><p>Chicken thigh</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Negima</h3><span class="price">$4</span></div><p>Chicken thigh with leek</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Tebasaki</h3><span class="price">$4</span></div><p>Chicken wings</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Tsukune</h3><span class="price">$4</span></div><p>Chicken meatball</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Hatsu</h3><span class="price">$4</span></div><p>Chicken hearts</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Sunagimo</h3><span class="price">$4</span></div><p>Chicken gizzard</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Bonjiri</h3><span class="price">$4</span></div><p>Chicken tail</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Nankotsu</h3><span class="price">$4</span></div><p>Chicken cartilage</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Liver</h3><span class="price">$4</span></div><p>Chicken liver</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Kawa</h3><span class="price">$4</span></div><p>Chicken skin</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Shishitou</h3><span class="price">$4</span></div><p>Japanese peppers</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Shiitake</h3><span class="price">$4</span></div><p>Grilled mushroom</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Okra</h3><span class="price">$4</span></div><p>Grilled okra</p></div></article>
+      </div>
+    </section>
+
+    <!-- DRINKS -->
+    <section class="cat" id="drinks">
+      <div class="cat-head rv"><span class="jp">飲</span><h2>Drinks</h2><span class="note">Something Refreshing</span></div>
+      <p class="cat-sub rv">Japanese sodas, teas and classics to round out your meal.</p>
+      <div class="tickets compact">
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Ramune</h3><span class="price">$4</span></div><p>Japanese marbled soda</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Calpico</h3><span class="price">$4</span></div><p>Refreshing citrus soft drink</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Green Tea</h3><span class="price">$4</span></div><p>Hot or iced</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Yuzu Soda</h3><span class="price">$4</span></div><p>Bright Japanese citrus</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Melon Cream Soda</h3><span class="price">$4</span></div><p>Kissaten classic</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Mango Cream Soda</h3><span class="price">$4</span></div><p>Sweet and creamy</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Plum Soda</h3><span class="price">$4</span></div><p>Ume-flavored fizz</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Apple Juice</h3><span class="price">$5</span></div><p>Chilled and crisp</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Coke</h3><span class="price">$2</span></div><p>The sparkling classic</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Diet Coke</h3><span class="price">$2</span></div><p>Zero calories, full crisp</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Sprite</h3><span class="price">$2</span></div><p>Lemon-lime refresher</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Sparkling Water</h3><span class="price">$3</span></div><p>Lightly effervescent</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Bottled Water</h3><span class="price">$1.50</span></div><p>Still and cold</p></div></article>
+      </div>
+    </section>
+
+    <!-- empty search state -->
+    <div class="no-hit" id="nohit">
+      <div class="jp">無</div>
+      No dishes match your search. Try another word — maybe "ramen", "chicken" or "gyoza".
+    </div>
+
+  </main>
+
+  <section class="cta-band">
+    <span class="bgk" aria-hidden="true">食券</span>
+    <div class="inner">
+      <h2>Found Your Bowl?</h2>
+      <p>Pick your nearest location and order online — dine-in, pickup or delivery.</p>
+      <a class="btn" href="index.html#locations">Order Online</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="f-bottom">
+      <span>© Ramen Hiroshi · All rights reserved</span>
+      <span>一杯入魂 · <a href="index.html">Back to Home</a></span>
+    </div>
+  </footer>
+
+</div><!-- /main -->
+
+<script>
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* sidebar links: smooth scroll + close drawer on mobile */
+const links=[...document.querySelectorAll('.sb-link')];
+links.forEach(l=>l.addEventListener('click',()=>{
+  document.getElementById(l.dataset.cat).scrollIntoView({behavior:'smooth'});
+  document.body.classList.remove('sb-open');
+}));
+
+/* scrollspy → active sidebar link */
+const cats=[...document.querySelectorAll('.cat')];
+const spy=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.toggle('active',l.dataset.cat===e.target.id));
+    }
+  });
+},{rootMargin:'-25% 0px -65% 0px'});
+cats.forEach(c=>spy.observe(c));
+
+/* live search filter */
+const q=document.getElementById('q');
+const nohit=document.getElementById('nohit');
+q.addEventListener('input',()=>{
+  const v=q.value.trim().toLowerCase();
+  document.body.classList.toggle('searching',!!v);
+  let total=0;
+  cats.forEach(cat=>{
+    let hits=0;
+    cat.querySelectorAll('.ticket').forEach(t=>{
+      const match=!v||t.textContent.toLowerCase().includes(v);
+      t.style.display=match?'':'none';
+      if(match){hits++;t.classList.add('in')}
+    });
+    cat.style.display=hits?'':'none';
+    /* update sidebar counts while searching */
+    const link=links.find(l=>l.dataset.cat===cat.id);
+    if(link){link.querySelector('.cnt').textContent=v?hits:link.dataset.base||link.querySelector('.cnt').textContent}
+    total+=hits;
+  });
+  nohit.style.display=total?'none':'block';
+});
+/* remember base counts */
+links.forEach(l=>l.dataset.base=l.querySelector('.cnt').textContent);
+</script>
+</body>
+</html>
