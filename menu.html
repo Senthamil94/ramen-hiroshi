@@ -63,7 +63,14 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.25}
 #navLinks a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
 #navLinks a:hover::after,#navLinks a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
 @media(min-width:993px){
-  #navLinks{position:fixed;top:0;right:max(4vw,calc((100vw - min(1180px,92%))/2));height:var(--nav-h);display:flex !important;align-items:center;z-index:150;background:transparent;pointer-events:auto}
+  #site-nav .bar{gap:1.5rem}
+  #site-nav .logo{flex-shrink:0}
+  #navLinks{
+    position:static;inset:auto;width:auto;height:auto;min-height:0;
+    display:flex !important;flex:1;justify-content:flex-end;align-items:center;
+    gap:1.8rem;padding:0;margin:0;background:transparent;z-index:1;
+    pointer-events:auto;opacity:1;visibility:visible;transform:none;
+  }
 }
 .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 2rem;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.04em;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s}
 .btn-red{background:var(--red);color:#fff;box-shadow:0 10px 26px -10px rgba(195,39,43,.65)}
@@ -351,6 +358,15 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
     <a class="logo" href="index.html">
       <img src="assets/logo.jpg" alt="Ramen Hiroshi logo">
     </a>
+    <div class="nav-links" id="navLinks" aria-label="Main navigation" aria-hidden="true">
+      <a href="index.html#locations">Locations</a>
+      <a href="index.html#about">About</a>
+      <a href="menu.html" aria-current="page">Menu</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#reviews">Reviews</a>
+      <a href="index.html#faq">FAQ</a>
+      <a class="btn btn-red" href="index.html#locations">Order Online</a>
+    </div>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -763,16 +779,6 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 </footer>
 
 <button id="toTop" aria-label="Scroll to top">↑</button>
-
-<nav class="nav-links" id="navLinks" aria-label="Main navigation" aria-hidden="true">
-  <a href="index.html#locations">Locations</a>
-  <a href="index.html#about">About</a>
-  <a href="menu.html" aria-current="page">Menu</a>
-  <a href="index.html#services">Services</a>
-  <a href="index.html#reviews">Reviews</a>
-  <a href="index.html#faq">FAQ</a>
-  <a class="btn btn-red" href="index.html#locations">Order Online</a>
-</nav>
 
 <script src="accessibility.js"></script>
 <script>

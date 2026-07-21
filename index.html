@@ -63,7 +63,14 @@ nav .logo img{mix-blend-mode:multiply;-webkit-mix-blend-mode:multiply}
 #navLinks a:hover::after{transform:scaleX(1);transform-origin:left}
 #navLinks .btn{padding:.6rem 1.4rem;font-size:.85rem}
 @media(min-width:993px){
-  #navLinks{position:fixed;top:0;right:max(4vw,calc((100vw - min(1180px,92%))/2));height:72px;display:flex !important;align-items:center;z-index:101;background:transparent;pointer-events:auto}
+  nav .bar{gap:1.5rem}
+  nav .logo{flex-shrink:0}
+  #navLinks{
+    position:static;inset:auto;width:auto;height:auto;min-height:0;
+    display:flex !important;flex:1;justify-content:flex-end;align-items:center;
+    gap:1.8rem;padding:0;margin:0;background:transparent;z-index:1;
+    pointer-events:auto;opacity:1;visibility:visible;transform:none;
+  }
 }
 .burger{display:none;flex-direction:column;gap:5px;padding:.5rem;z-index:110}
 .burger span{width:26px;height:2.5px;background:var(--ink);border-radius:2px;transition:.35s var(--ease)}
@@ -323,6 +330,15 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
     <a class="logo" href="#top">
       <img src="assets/logo.jpg" alt="Ramen Hiroshi logo">
     </a>
+    <div class="nav-links" id="navLinks" aria-label="Main navigation" aria-hidden="true">
+      <a href="#locations">Locations</a>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-red" href="#locations">Order Online</a>
+    </div>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -424,12 +440,12 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
       <p>A glimpse of our handcrafted ramen and authentic flavors — hover to take a closer look.</p>
     </div>
     <div class="menu-grid">
-      <article class="dish reveal"><span class="tag">Signature</span><figure><img src="assets/tonkotsu-ramen.png" alt="Hiroshi Tonkotsu Ramen"></figure><div class="body"><h3>Hiroshi Tonkotsu Ramen</h3><p>Rich pork-bone broth, chashu, soft-boiled egg, black garlic oil, and scallions.</p></div></article>
-      <article class="dish reveal d1"><span class="tag gold">Bright</span><figure><img src="assets/yuzu-shoyu-ramen.png" alt="Yuzu Shoyu Ramen"></figure><div class="body"><h3>Yuzu Shoyu Ramen</h3><p>Light, citrus-kissed shoyu broth with chashu, nori, and fresh scallions.</p></div></article>
-      <article class="dish reveal d2"><span class="tag">Crispy</span><figure><img src="assets/chicken-karaage-ramen.jpg" alt="Chicken Karaage Ramen"></figure><div class="body"><h3>Chicken Karaage Ramen</h3><p>Golden fried chicken over rich broth with fresh green onions.</p></div></article>
-      <article class="dish reveal"><figure><img src="assets/gyoza.jpg" alt="Pan-fried gyoza dumplings"></figure><div class="body"><h3>Handmade Gyoza</h3><p>Pan-fried dumplings with a savory dipping sauce.</p></div></article>
-      <article class="dish reveal d1"><figure><img src="assets/yakitori.jpg" alt="Grilled yakitori skewers"></figure><div class="body"><h3>Yakitori Skewers</h3><p>Traditional charcoal-grilled skewers, seasoned and seared to order.</p></div></article>
-      <article class="dish reveal d2"><figure><img src="assets/takoyaki.jpg" alt="Takoyaki topped with sauce and bonito flakes"></figure><div class="body"><h3>Takoyaki</h3><p>Japanese street-food favorite topped with sauce and dancing bonito flakes.</p></div></article>
+      <article class="dish reveal"><span class="tag">Signature</span><figure><img src="assets/hiroshi-tonkotsu-ramen.png" alt="Hiroshi Tonkotsu Ramen"></figure><div class="body"><h3>Hiroshi Tonkotsu Ramen</h3><p>Rich pork-bone broth, chashu, soft-boiled egg, lotus root, scallions, and wood ear mushrooms.</p></div></article>
+      <article class="dish reveal d1"><span class="tag gold">Bright</span><figure><img src="assets/yuzu-shoyu-ramen.png" alt="Yuzu Shoyu Ramen"></figure><div class="body"><h3>Yuzu Shoyu Ramen</h3><p>Light citrus-kissed shoyu broth with chashu, nori, narutomaki, menma, and fresh scallions.</p></div></article>
+      <article class="dish reveal d2"><span class="tag">Crispy</span><figure><img src="assets/takoyaki.png" alt="Takoyaki topped with sauce and bonito flakes"></figure><div class="body"><h3>Takoyaki</h3><p>Crispy octopus balls drizzled with takoyaki sauce and mayo, topped with aonori and bonito flakes.</p></div></article>
+      <article class="dish reveal d3"><span class="tag gold">Light</span><figure><img src="assets/shio-chicken-ramen.png" alt="Shio Chicken Ramen"></figure><div class="body"><h3>Shio Chicken Ramen</h3><p>Sea salt chicken broth topped with braised chicken, soft-boiled egg, fish cake, fresh vegetables, bamboo shoots, and seaweed.</p></div></article>
+      <article class="dish reveal d4"><span class="tag">Spicy</span><figure><img src="assets/tantanmen.png" alt="Tantanmen"></figure><div class="body"><h3>Tantanmen</h3><p>Creamy sesame tonkotsu soup topped with spicy ground pork, soft-boiled egg, fresh vegetables, and a touch of chili for the perfect spicy kick.</p></div></article>
+      <article class="dish reveal"><figure><img src="assets/chicken-katsu-teishoku.png" alt="Chicken Katsu Teishoku"></figure><div class="body"><h3>Chicken Katsu Teishoku</h3><p>Organic chicken breaded cutlet with rice, miso soup and side salad.</p></div></article>
     </div>
     <div class="menu-cta reveal"><a class="btn btn-red" href="menu.html">See the Full Menu →</a></div>
 
@@ -563,16 +579,6 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
     </div>
   </div>
 </footer>
-
-<nav class="nav-links" id="navLinks" aria-label="Main navigation" aria-hidden="true">
-  <a href="#locations">Locations</a>
-  <a href="#about">About</a>
-  <a href="#menu">Menu</a>
-  <a href="#services">Services</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#faq">FAQ</a>
-  <a class="btn btn-red" href="#locations">Order Online</a>
-</nav>
 
 <button id="toTop" aria-label="Scroll to top">↑</button>
 
