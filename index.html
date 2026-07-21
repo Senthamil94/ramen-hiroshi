@@ -52,16 +52,19 @@ h1,h2,h3,.disp{font-family:var(--disp);font-weight:700;line-height:1.15}
 
 /* ---------- nav ---------- */
 nav{position:fixed;inset:0 0 auto 0;z-index:100;background:var(--paper);box-shadow:0 1px 0 var(--line);transition:box-shadow .4s,padding .4s}
-nav .bar{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
-.logo{display:flex;align-items:center}
-.logo img{width:min(250px,42vw);height:60px;object-fit:contain;transition:transform .5s var(--ease)}
-nav .logo img{mix-blend-mode:multiply}
+nav .bar{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;position:relative;z-index:2}
+.logo{display:flex;align-items:center;position:relative;z-index:2;background:var(--paper)}
+.logo img{width:min(250px,42vw);height:60px;object-fit:contain;transition:transform .5s var(--ease);mix-blend-mode:multiply;-webkit-mix-blend-mode:multiply}
+nav .logo img{mix-blend-mode:multiply;-webkit-mix-blend-mode:multiply}
 .logo:hover img{transform:scale(1.03)}
-.nav-links{display:flex;align-items:center;gap:1.8rem;font-weight:600;font-size:.92rem}
-.nav-links a{position:relative;padding:.3rem 0}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
-.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
-.nav-links .btn{padding:.6rem 1.4rem;font-size:.85rem}
+#navLinks{display:flex;align-items:center;gap:1.8rem;font-weight:600;font-size:.92rem;color:#16120F}
+#navLinks a{position:relative;padding:.3rem 0;color:#16120F;text-decoration:none}
+#navLinks a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+#navLinks a:hover::after{transform:scaleX(1);transform-origin:left}
+#navLinks .btn{padding:.6rem 1.4rem;font-size:.85rem}
+@media(min-width:993px){
+  #navLinks{position:fixed;top:0;right:max(4vw,calc((100vw - min(1180px,92%))/2));height:72px;display:flex !important;align-items:center;z-index:101;background:transparent;pointer-events:auto}
+}
 .burger{display:none;flex-direction:column;gap:5px;padding:.5rem;z-index:110}
 .burger span{width:26px;height:2.5px;background:var(--ink);border-radius:2px;transition:.35s var(--ease)}
 nav.open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
@@ -262,9 +265,26 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
 
 /* ---------- responsive ---------- */
 @media(max-width:992px){
-  .nav-links{position:fixed;inset:0;background:var(--paper);flex-direction:column;justify-content:center;gap:1.6rem;font-size:1.3rem;transform:translateX(100%);transition:transform .45s var(--ease)}
-  nav.open .nav-links{transform:none}
-  .burger{display:flex}
+  nav.open{z-index:100000;background:var(--paper)}
+  nav .bar{position:relative;z-index:100002;pointer-events:auto;background:var(--paper)}
+  nav .logo{display:flex;flex-shrink:0;background:var(--paper)}
+  nav .logo img{width:min(250px,42vw);height:60px;object-fit:contain;mix-blend-mode:multiply;-webkit-mix-blend-mode:multiply}
+  .burger{display:flex;position:relative;z-index:100003;flex-shrink:0}
+  body.nav-open{overflow:hidden}
+  #navLinks{
+    display:none !important;
+    position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;
+    z-index:99999;flex-direction:column;justify-content:center;align-items:center;
+    gap:1.25rem;padding:5rem 1.5rem 2rem;box-sizing:border-box;
+    background:#FBF5E9;margin:0;
+  }
+  body.nav-open #navLinks{display:flex !important}
+  body.nav-open #navLinks a{
+    color:#16120F !important;-webkit-text-fill-color:#16120F !important;
+    font-size:1.25rem !important;font-weight:600 !important;line-height:1.5 !important;
+    opacity:1 !important;visibility:visible !important;position:relative;z-index:1;
+  }
+  body.nav-open #navLinks a.btn-red{color:#fff !important;-webkit-text-fill-color:#fff !important}
 }
 @media(max-width:980px){
   .hero .wrap{grid-template-columns:1fr;text-align:center;padding-top:7rem}
@@ -303,16 +323,7 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
     <a class="logo" href="#top">
       <img src="assets/logo.jpg" alt="Ramen Hiroshi logo">
     </a>
-    <div class="nav-links" id="navLinks">
-      <a href="#locations">Locations</a>
-      <a href="#about">About</a>
-      <a href="#menu">Menu</a>
-      <a href="#services">Services</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn-red" href="#locations">Order Online</a>
-    </div>
-    <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -553,6 +564,16 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
   </div>
 </footer>
 
+<nav class="nav-links" id="navLinks" aria-label="Main navigation" aria-hidden="true">
+  <a href="#locations">Locations</a>
+  <a href="#about">About</a>
+  <a href="#menu">Menu</a>
+  <a href="#services">Services</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn btn-red" href="#locations">Order Online</a>
+</nav>
+
 <button id="toTop" aria-label="Scroll to top">↑</button>
 
 <script src="accessibility.js"></script>
@@ -662,14 +683,25 @@ orbitTxt.split("").forEach((ch,i)=>{
 const tk=document.getElementById("ticker");tk.innerHTML+=tk.innerHTML;
 
 /* ================= SCROLL / NAV ================= */
-const nav=document.getElementById("nav"),toTop=document.getElementById("toTop");
+const nav=document.getElementById("nav"),toTop=document.getElementById("toTop"),navLinksEl=document.getElementById("navLinks"),burger=document.getElementById("burger"),navMq=matchMedia("(max-width:992px)");
 addEventListener("scroll",()=>{
   toTop.classList.toggle("show",scrollY>700);
 },{passive:true});
 toTop.onclick=()=>scrollTo({top:0,behavior:"smooth"});
-const burger=document.getElementById("burger");
-burger.onclick=()=>nav.classList.toggle("open");
-document.querySelectorAll("#navLinks a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
+const syncNavA11y=(open)=>{
+  const mobile=navMq.matches;
+  navLinksEl.setAttribute("aria-hidden",mobile&&!open?"true":"false");
+  burger.setAttribute("aria-expanded",open?"true":"false");
+};
+const setNavOpen=(open)=>{
+  nav.classList.toggle("open",open);
+  document.body.classList.toggle("nav-open",open);
+  syncNavA11y(open);
+};
+burger.onclick=()=>setNavOpen(!nav.classList.contains("open"));
+document.querySelectorAll("#navLinks a").forEach(a=>a.onclick=()=>setNavOpen(false));
+navMq.addEventListener("change",()=>syncNavA11y(nav.classList.contains("open")));
+syncNavA11y(false);
 
 /* reveal on scroll */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});

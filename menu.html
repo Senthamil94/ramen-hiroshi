@@ -54,19 +54,22 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.25}
 .menu-column{flex:1;min-width:0;position:relative;z-index:2}
 #site-nav .wrap,.site-footer .wrap{width:min(1180px,92%);margin:0 auto}
 #site-nav{position:sticky;top:0;left:0;right:0;width:100%;z-index:120;background:var(--paper);box-shadow:0 1px 0 rgba(22,18,15,.14)}
-#site-nav .bar{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
-#site-nav .logo{display:flex;align-items:center}
-#site-nav .logo img{width:min(250px,42vw);height:60px;object-fit:contain;transition:transform .5s var(--ease);mix-blend-mode:multiply}
+#site-nav .bar{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;position:relative;z-index:2}
+#site-nav .logo{display:flex;align-items:center;position:relative;z-index:2;background:var(--paper)}
+#site-nav .logo img{width:min(250px,42vw);height:60px;object-fit:contain;transition:transform .5s var(--ease);mix-blend-mode:multiply;-webkit-mix-blend-mode:multiply}
 #site-nav .logo:hover img{transform:scale(1.03)}
-#site-nav .nav-links{display:flex;align-items:center;gap:1.8rem;font-weight:600;font-size:.92rem;color:var(--site-ink)}
-#site-nav .nav-links a{position:relative;padding:.3rem 0}
-#site-nav .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
-#site-nav .nav-links a:hover::after,#site-nav .nav-links a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+#navLinks{display:flex;align-items:center;gap:1.8rem;font-weight:600;font-size:.92rem;color:#16120F}
+#navLinks a{position:relative;padding:.3rem 0;color:#16120F;text-decoration:none}
+#navLinks a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+#navLinks a:hover::after,#navLinks a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+@media(min-width:993px){
+  #navLinks{position:fixed;top:0;right:max(4vw,calc((100vw - min(1180px,92%))/2));height:var(--nav-h);display:flex !important;align-items:center;z-index:150;background:transparent;pointer-events:auto}
+}
 .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 2rem;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.04em;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s}
 .btn-red{background:var(--red);color:#fff;box-shadow:0 10px 26px -10px rgba(195,39,43,.65)}
 .btn-red:hover{transform:translateY(-3px);background:var(--red-deep);box-shadow:0 16px 32px -10px rgba(195,39,43,.7)}
-#site-nav .nav-links .btn{padding:.6rem 1.4rem;font-size:.85rem}
-#site-nav .nav-links .btn::after{display:none}
+#navLinks .btn{padding:.6rem 1.4rem;font-size:.85rem}
+#navLinks .btn::after{display:none}
 #site-nav .burger{display:none;flex-direction:column;gap:5px;padding:.5rem;z-index:110}
 #site-nav .burger span{width:26px;height:2.5px;background:var(--site-ink);border-radius:2px;transition:.35s var(--ease)}
 #site-nav.open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
@@ -294,9 +297,29 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 /* ============ RESPONSIVE ============ */
 @media(max-width:1200px){.tickets{grid-template-columns:repeat(2,1fr)}.tickets.compact{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:992px){
-  #site-nav .nav-links{position:fixed;inset:0;background:var(--paper);flex-direction:column;justify-content:center;gap:1.6rem;font-size:1.3rem;transform:translateX(100%);transition:transform .45s var(--ease)}
-  #site-nav.open .nav-links{transform:none}
-  #site-nav .burger{display:flex}
+  #site-nav{position:fixed;inset:0 0 auto 0;background:var(--paper)}
+  body{padding-top:var(--nav-h)}
+  #site-nav.open{z-index:100000;background:var(--paper)}
+  #site-nav .bar{background:var(--paper)}
+  #site-nav .logo{background:var(--paper)}
+  #site-nav .logo img{mix-blend-mode:multiply;-webkit-mix-blend-mode:multiply}
+  #site-nav .burger{display:flex;position:relative;z-index:100001}
+  .topbar .tb-brand img{display:none}
+  body.nav-open{overflow:hidden}
+  #navLinks{
+    display:none !important;
+    position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;
+    z-index:99999;flex-direction:column;justify-content:center;align-items:center;
+    gap:1.25rem;padding:5rem 1.5rem 2rem;box-sizing:border-box;
+    background:#FBF5E9;margin:0;
+  }
+  body.nav-open #navLinks{display:flex !important}
+  body.nav-open #navLinks a{
+    color:#16120F !important;-webkit-text-fill-color:#16120F !important;
+    font-size:1.25rem !important;font-weight:600 !important;line-height:1.5 !important;
+    opacity:1 !important;visibility:visible !important;position:relative;z-index:1;
+  }
+  body.nav-open #navLinks a.btn-red{color:#fff !important;-webkit-text-fill-color:#fff !important}
 }
 @media(max-width:940px){
   :root{--sb-w:280px}
@@ -328,16 +351,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
     <a class="logo" href="index.html">
       <img src="assets/logo.jpg" alt="Ramen Hiroshi logo">
     </a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html#locations">Locations</a>
-      <a href="index.html#about">About</a>
-      <a href="menu.html" aria-current="page">Menu</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#reviews">Reviews</a>
-      <a href="index.html#faq">FAQ</a>
-      <a class="btn btn-red" href="index.html#locations">Order Online</a>
-    </div>
-    <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -750,6 +764,16 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
 <button id="toTop" aria-label="Scroll to top">↑</button>
 
+<nav class="nav-links" id="navLinks" aria-label="Main navigation" aria-hidden="true">
+  <a href="index.html#locations">Locations</a>
+  <a href="index.html#about">About</a>
+  <a href="menu.html" aria-current="page">Menu</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#reviews">Reviews</a>
+  <a href="index.html#faq">FAQ</a>
+  <a class="btn btn-red" href="index.html#locations">Order Online</a>
+</nav>
+
 <script src="accessibility.js"></script>
 <script>
 /* reveal on scroll */
@@ -800,12 +824,25 @@ q.addEventListener('input',()=>{
 links.forEach(l=>l.dataset.base=l.querySelector('.cnt').textContent);
 
 /* home header / footer */
-const siteNav=document.getElementById('site-nav'),toTop=document.getElementById('toTop');
+const siteNav=document.getElementById('site-nav'),toTop=document.getElementById('toTop'),navLinksEl=document.getElementById('navLinks'),burger=document.getElementById('burger'),navMq=matchMedia('(max-width:992px)');
 addEventListener('scroll',()=>{toTop.classList.toggle('show',scrollY>700)},{passive:true});
 toTop.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-document.getElementById('burger').onclick=()=>{siteNav.classList.toggle('open');document.body.classList.remove('sb-open')};
-document.querySelectorAll('#navLinks a').forEach(a=>a.onclick=()=>siteNav.classList.remove('open'));
-document.querySelector('.tb-btn').addEventListener('click',()=>siteNav.classList.remove('open'));
+const syncNavA11y=(open)=>{
+  const mobile=navMq.matches;
+  navLinksEl.setAttribute('aria-hidden',mobile&&!open?'true':'false');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+};
+const setNavOpen=(open)=>{
+  siteNav.classList.toggle('open',open);
+  document.body.classList.toggle('nav-open',open);
+  syncNavA11y(open);
+  if(open)document.body.classList.remove('sb-open');
+};
+burger.onclick=()=>setNavOpen(!siteNav.classList.contains('open'));
+document.querySelectorAll('#navLinks a').forEach(a=>a.onclick=()=>setNavOpen(false));
+document.querySelector('.tb-btn').addEventListener('click',()=>setNavOpen(false));
+navMq.addEventListener('change',()=>syncNavA11y(siteNav.classList.contains('open')));
+syncNavA11y(false);
 document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
 </body>
