@@ -54,7 +54,8 @@ h1,h2,h3,.disp{font-family:var(--disp);font-weight:700;line-height:1.15}
 nav{position:fixed;inset:0 0 auto 0;z-index:100;background:var(--paper);box-shadow:0 1px 0 var(--line);transition:box-shadow .4s,padding .4s}
 nav .bar{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
 .logo{display:flex;align-items:center}
-.logo img{width:min(230px,42vw);height:50px;object-fit:contain;transition:transform .5s var(--ease)}
+.logo img{width:min(250px,42vw);height:60px;object-fit:contain;transition:transform .5s var(--ease)}
+nav .logo img{mix-blend-mode:multiply}
 .logo:hover img{transform:scale(1.03)}
 .nav-links{display:flex;align-items:center;gap:1.8rem;font-weight:600;font-size:.92rem}
 .nav-links a{position:relative;padding:.3rem 0}
@@ -243,6 +244,7 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
 .foot-grid a{display:block;padding:.28rem 0;color:rgba(251,245,233,.72);font-size:.92rem;transition:.25s}
 .foot-grid a:hover{color:var(--red)}
 .foot-brand p{color:rgba(251,245,233,.6);font-size:.9rem;max-width:34ch;margin-top:1rem}
+.foot-brand .logo img{width:min(250px,42vw);height:60px;object-fit:contain}
 .socials{display:flex;gap:.8rem;margin-top:1.4rem}
 .socials a{width:42px;height:42px;border:1px solid var(--line-light);border-radius:50%;display:grid;place-items:center;color:rgba(251,245,233,.85);transition:.3s var(--ease)}
 .socials a svg{width:18px;height:18px;fill:currentColor}
@@ -337,7 +339,7 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
         <div class="bowl-ring"></div>
         <div class="orbit-txt" id="orbit"></div>
         <div class="steam" id="steam"></div>
-        <img class="bowl" src="assets/hero-bowl.jpg" alt="Hiroshi signature Tonkotsu ramen bowl with traditional toppings">
+        <img class="bowl" src="assets/banner.jpg" alt="Assortment of Japanese appetizers including gyoza, karaage, wings, and izakaya favorites">
       </div>
       <div class="chip c1">🍜 <div>Hiroshi Tonkotsu<br><b>House Signature</b></div></div>
       <div class="chip c2">🥢 <div>Fresh Noodles<br><b>Made Daily</b></div></div>
@@ -384,7 +386,7 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
   <div class="wrap">
     <div class="about-img reveal">
       <span class="vtxt" aria-hidden="true">本格的な味</span>
-      <img src="assets/about-interior.jpg" alt="Warm modern interior of Ramen Hiroshi with wooden tables">
+      <img src="assets/about-interior.jpg" alt="Ramen Hiroshi dining room with wooden tables and a vibrant noodle-inspired wall mural">
       <div class="stamp">RAMEN<br>HIROSHI<br>ラーメン</div>
     </div>
     <div class="reveal d1">
