@@ -34,12 +34,12 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 h1,h2,h3,.disp{font-family:var(--disp);font-weight:700;line-height:1.15}
-::selection{background:var(--red);color:var(--paper)}
+::selection{background:var(--ink);color:var(--paper)}
 
 /* ---------- utilities ---------- */
 .wrap{width:min(1180px,92%);margin:0 auto}
-.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--red)}
-.eyebrow::before{content:"";width:26px;height:2px;background:var(--red)}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#9c7223}
+.eyebrow::before{content:"";width:26px;height:2px;background:#9c7223}
 .sec-title{font-size:clamp(2rem,4.4vw,3.4rem);margin:.5rem 0 1rem}
 .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 2rem;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.04em;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s}
 .btn-red{background:var(--red);color:#fff;box-shadow:0 10px 26px -10px rgba(195,39,43,.65)}
@@ -79,40 +79,36 @@ nav.open .burger span:nth-child(2){opacity:0}
 nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;background:var(--ink);color:var(--paper);display:flex;align-items:center;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(1100px 620px at 78% 42%,rgba(195,39,43,.28),transparent 60%),radial-gradient(700px 500px at 12% 88%,rgba(217,164,65,.12),transparent 60%)}
-.kanji-bg{position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:var(--disp);font-size:clamp(14rem,30vw,26rem);line-height:.9;color:transparent;-webkit-text-stroke:1px rgba(251,245,233,.09);writing-mode:vertical-rl;user-select:none;pointer-events:none;letter-spacing:.05em}
+.hero{position:relative;min-height:100svh;background:var(--paper);color:var(--ink);display:flex;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(1100px 620px at 78% 42%,rgba(195,39,43,.07),transparent 60%),radial-gradient(700px 500px at 12% 88%,rgba(217,164,65,.08),transparent 60%)}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;padding:7.5rem 0 5rem}
-.hero-tag{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--line-light);border-radius:999px;padding:.45rem 1.1rem;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
-.hero-tag i{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:pulse 2s infinite}
+.hero-tag{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--line);border-radius:999px;padding:.45rem 1.1rem;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(22,18,15,.7)}
+.hero-tag i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:pulse 2s infinite}
 @keyframes pulse{50%{transform:scale(1.5);opacity:.6}}
 .hero h1{font-size:clamp(2.7rem,5.6vw,4.6rem);font-weight:800;margin:1.3rem 0 1.1rem}
-.hero h1 em{font-style:normal;color:var(--red);position:relative}
-.hero h1 em::after{content:"";position:absolute;left:0;bottom:.06em;width:100%;height:.14em;background:var(--red);opacity:.25;border-radius:99px}
-.hero p{max-width:46ch;color:rgba(251,245,233,.78);font-size:1.06rem}
+.hero p{max-width:46ch;color:rgba(22,18,15,.75);font-size:1.06rem}
 .hero-ctas{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}
 .hero-stats{display:flex;gap:2.4rem;margin-top:3rem;flex-wrap:wrap}
-.hero-stats div b{font-family:var(--disp);font-size:1.7rem;color:var(--gold)}
-.hero-stats div span{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,245,233,.55)}
+.hero-stats div b{font-family:var(--disp);font-size:1.7rem;color:var(--ink)}
+.hero-stats div span{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(22,18,15,.55)}
 
 /* bowl + steam */
 .bowl-stage{position:relative;display:grid;place-items:center;width:100%;max-width:min(500px,92vw);margin:0 auto;padding:1.25rem 0;overflow:visible}
 .bowl-visual{position:relative;display:grid;place-items:center;width:min(430px,80vw);aspect-ratio:1;overflow:visible;margin:0 auto}
-.bowl-ring{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1;margin-left:-59%;margin-top:-59%;border-radius:50%;border:1px dashed rgba(251,245,233,.35);animation:spin 40s linear infinite;z-index:1;pointer-events:none}
-.bowl-ring::before{content:"麺 · MEN · 湯 · SOUP · 叉焼 · CHASHU · ";position:absolute;inset:0}
+.bowl-ring{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1;margin-left:-59%;margin-top:-59%;border-radius:50%;border:1px dashed rgba(22,18,15,.25);animation:spin 40s linear infinite;z-index:1;pointer-events:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 .orbit-txt{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1;margin-left:-59%;margin-top:-59%;animation:spin 46s linear infinite reverse;pointer-events:none;z-index:2}
-.orbit-txt span{position:absolute;left:50%;top:50%;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(217,164,65,.75);transform-origin:0 0}
-.bowl{position:relative;z-index:3;width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;border:10px solid rgba(251,245,233,.06);box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px rgba(251,245,233,.1);animation:float 6s ease-in-out infinite}
+.orbit-txt span{position:absolute;left:50%;top:50%;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(22,18,15,.45);transform-origin:0 0}
+.bowl{position:relative;z-index:3;width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;border:10px solid rgba(22,18,15,.06);box-shadow:0 40px 90px -30px rgba(22,18,15,.5),0 0 0 1px rgba(22,18,15,.08);animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-14px)}}
 .steam{position:absolute;bottom:78%;left:50%;pointer-events:none;z-index:3}
-.steam i{position:absolute;bottom:0;width:9px;height:9px;border-radius:50%;background:rgba(251,245,233,.5);filter:blur(6px);opacity:0;animation:rise 4.2s ease-in infinite}
+.steam i{position:absolute;bottom:0;width:9px;height:9px;border-radius:50%;background:rgba(22,18,15,.25);filter:blur(6px);opacity:0;animation:rise 4.2s ease-in infinite}
 @keyframes rise{0%{opacity:0;transform:translate(0,0) scale(.6)}15%{opacity:.85}100%{opacity:0;transform:translate(var(--dx,0),-190px) scale(2.6)}}
 .chip{position:absolute;background:rgba(22,18,15,.78);backdrop-filter:blur(8px);border:1px solid var(--line-light);border-radius:14px;padding:.7rem 1rem;font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:.55rem;animation:float 7s ease-in-out infinite;z-index:5;white-space:nowrap}
 .chip b{color:var(--gold)}
 .chip.c1{top:0;left:0;animation-delay:.8s}
 .chip.c2{bottom:4%;right:0;animation-delay:1.6s}
-.scroll-cue{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:5;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(251,245,233,.55);display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.scroll-cue{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:5;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(22,18,15,.55);display:flex;flex-direction:column;align-items:center;gap:.5rem}
 .scroll-cue::after{content:"";width:1px;height:38px;background:linear-gradient(var(--red),transparent);animation:drip 1.8s infinite}
 @keyframes drip{from{transform:scaleY(0);transform-origin:top}to{transform:scaleY(1);transform-origin:top}}
 
@@ -126,9 +122,7 @@ nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
 /* ---------- locations (signature) ---------- */
 .loc-sec{background:var(--ink);color:var(--paper);padding:7.5rem 0 6.5rem;position:relative;overflow:hidden}
-.loc-sec .kanji-side{position:absolute;left:1.5rem;top:8rem;writing-mode:vertical-rl;font-family:var(--disp);font-size:1.05rem;letter-spacing:.55em;color:rgba(251,245,233,.28)}
 .loc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.6rem}
-.loc-head p{max-width:52ch;color:rgba(251,245,233,.7)}
 .noren{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-bottom:2.2rem}
 .noren button{position:relative;padding:1.15rem .6rem 1rem;background:var(--ink-2);border:1px solid var(--line-light);border-radius:0 0 16px 16px;color:rgba(251,245,233,.72);font-weight:700;font-size:.95rem;letter-spacing:.05em;transition:.35s var(--ease);transform-origin:top center;overflow:hidden}
 .noren button small{display:block;font-family:var(--disp);font-size:.72rem;letter-spacing:.4em;color:var(--gold);margin-bottom:.2rem}
@@ -168,7 +162,6 @@ nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .about-img{position:relative;overflow:visible;padding:1rem 1.5rem 1.5rem 2.5rem}
 .about-img img{border-radius:var(--rad);aspect-ratio:4/4.6;object-fit:cover;box-shadow:0 30px 60px -25px rgba(22,18,15,.4);width:100%}
 .about-img .stamp{position:absolute;right:0;bottom:0;z-index:2;width:110px;height:110px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--disp);text-align:center;font-size:.72rem;letter-spacing:.18em;line-height:1.5;box-shadow:0 16px 34px -12px rgba(195,39,43,.7);animation:spin 24s linear infinite}
-.about-img .vtxt{position:absolute;left:0;top:1rem;writing-mode:vertical-rl;font-family:var(--disp);letter-spacing:.5em;font-size:.95rem;color:var(--red)}
 .about p{color:rgba(22,18,15,.78);margin-bottom:1rem}
 .about-feats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.6rem}
 .about-feats div{border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;font-weight:700;font-size:.92rem;display:flex;gap:.7rem;align-items:center;background:#fff;transition:.35s var(--ease)}
@@ -192,7 +185,6 @@ nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
 /* summer special */
 .special{margin-top:4.5rem;background:var(--ink);color:var(--paper);border-radius:26px;display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;position:relative}
-.special::before{content:"夏";position:absolute;right:38%;top:-18%;font-family:var(--disp);font-size:14rem;color:rgba(217,164,65,.08);pointer-events:none}
 .special .txt{padding:3rem;display:flex;flex-direction:column;justify-content:center;gap:.4rem}
 .special h3{font-size:clamp(1.6rem,3vw,2.4rem)}
 .special p{color:rgba(251,245,233,.75);max-width:48ch}
@@ -227,7 +219,7 @@ nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .rev-stage{position:relative;margin-top:2.4rem;min-height:270px}
 .rev{position:absolute;inset:0;opacity:0;transform:translateY(18px);transition:.7s var(--ease);background:#fff;border:1px solid var(--line);border-radius:24px;padding:2.6rem 2.8rem;display:flex;flex-direction:column;gap:1.2rem;pointer-events:none}
 .rev.on{opacity:1;transform:none;pointer-events:auto}
-.rev q{font-family:var(--disp);font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.6;quotes:"「" "」"}
+.rev q{font-family:var(--disp);font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.6;quotes:"\201C" "\201D"}
 .rev .who{display:flex;align-items:center;gap:.8rem;font-weight:700}
 .rev .who i{font-style:normal;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--disp)}
 .rev .stars{color:var(--gold);letter-spacing:.2em}
@@ -248,7 +240,6 @@ nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
 /* ---------- footer ---------- */
 footer{background:var(--ink);color:var(--paper);padding:5rem 0 2rem;position:relative;overflow:hidden}
-footer::before{content:"いただきます";position:absolute;right:2rem;bottom:-1.2rem;font-family:var(--disp);font-size:6rem;color:rgba(251,245,233,.05);white-space:nowrap}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid var(--line-light)}
 .foot-grid h4{font-family:var(--disp);letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;color:var(--gold);margin-bottom:1rem}
 .foot-grid a{display:block;padding:.28rem 0;color:rgba(251,245,233,.72);font-size:.92rem;transition:.25s}
@@ -298,7 +289,6 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
   .hero p{margin:0 auto}
   .hero-ctas,.hero-stats{justify-content:center}
   .bowl-stage{margin-top:1.5rem}
-  .kanji-bg{opacity:.5}
   .loc-panel{grid-template-columns:1fr}
   .loc-photo{min-height:300px}
   .about .wrap{grid-template-columns:1fr;gap:3rem}
@@ -345,15 +335,14 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
 
 <!-- ========== HERO ========== -->
 <header class="hero" id="top">
-  <div class="kanji-bg" aria-hidden="true">ラーメン</div>
   <div class="wrap">
     <div>
       <span class="hero-tag"><i></i> Est. Bay Area · Four Locations</span>
-      <h1>Savor the Soul of <em>Authentic</em> Japanese Ramen</h1>
-      <p>Rich broths simmered low and slow, noodles pulled fresh, and toppings crafted with care — every bowl at Ramen Hiroshi is a warm trip to Japan.</p>
+      <h1>Savor the Soul of Authentic Japanese Ramen</h1>
+      <p>Rich broth made from scratch, simmered low and slow, with local organic fresh produce — every bowl at Ramen Hiroshi is a warm trip to Japan.</p>
       <div class="hero-ctas">
         <a class="btn btn-red" href="#locations">Order Online →</a>
-        <a class="btn btn-ghost" href="#menu" style="color:var(--paper)">Explore the Menu</a>
+        <a class="btn btn-ghost" href="#menu">Explore the Menu</a>
       </div>
       <div class="hero-stats">
         <div><b>4</b><span>Bay Area locations</span></div>
@@ -366,7 +355,7 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
         <div class="bowl-ring"></div>
         <div class="orbit-txt" id="orbit"></div>
         <div class="steam" id="steam"></div>
-        <img class="bowl" src="assets/banner.jpg" alt="Assortment of Japanese appetizers including gyoza, karaage, wings, and izakaya favorites">
+        <img class="bowl" src="assets/hiroshi-tonkotsu-ramen.jpg" alt="Hiroshi Tonkotsu Ramen with chashu, soft-boiled egg, lotus root and wood ear mushrooms">
       </div>
       <div class="chip c1">🍜 <div>Hiroshi Tonkotsu<br><b>House Signature</b></div></div>
       <div class="chip c2">🥢 <div>Fresh Noodles<br><b>Made Daily</b></div></div>
@@ -386,14 +375,11 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
 
 <!-- ========== LOCATIONS ========== -->
 <section class="loc-sec" id="locations">
-  <div class="kanji-side" aria-hidden="true">四つの店舗</div>
   <div class="wrap">
     <div class="loc-head reveal">
       <div>
         <span class="eyebrow">Our Locations</span>
-        <h2 class="sec-title" style="color:var(--paper)">Four Doors. One Broth.</h2>
       </div>
-      <p>Pick your nearest noren curtain — live opening hours update in real time, so you always know where the broth is simmering right now.</p>
     </div>
 
     <div class="noren reveal d1" id="norenTabs" role="tablist"></div>
@@ -412,15 +398,14 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
 <section class="about" id="about">
   <div class="wrap">
     <div class="about-img reveal">
-      <span class="vtxt" aria-hidden="true">本格的な味</span>
       <img src="assets/about-interior.jpg" alt="Ramen Hiroshi dining room with wooden tables and a vibrant noodle-inspired wall mural">
-      <div class="stamp">RAMEN<br>HIROSHI<br>ラーメン</div>
+      <div class="stamp">RAMEN<br>HIROSHI</div>
     </div>
     <div class="reveal d1">
       <span class="eyebrow">Our Story</span>
       <h2 class="sec-title">Where Authentic Ramen Meets Rich Flavor</h2>
-      <p>Ramen Hiroshi is a beloved Japanese kitchen serving handcrafted ramen built on slow-simmered broths, fresh ingredients, and traditional recipes inspired by Japan.</p>
-      <p>From our signature tonkotsu to bright yuzu bowls, seasonal specials, and comforting sides, we bring true Japanese comfort food to Walnut Creek, San Ramon, Emeryville, and San Francisco.</p>
+      <p>Ramen Hiroshi is a beloved Japanese kitchen serving handcrafted ramen built on slow-simmered broths, fresh ingredients, and traditional recipes.</p>
+      <p>From our signature tonkotsu to zesty yuzu bowls, seasonal specials, and comforting sides, we bring true Japanese comfort food to Walnut Creek, San Ramon, Emeryville, and San Francisco.</p>
       <div class="about-feats">
         <div><i>🍲</i> Slow-simmered broths</div>
         <div><i>🌿</i> Fresh daily ingredients</div>
@@ -440,12 +425,12 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
       <p>A glimpse of our handcrafted ramen and authentic flavors — hover to take a closer look.</p>
     </div>
     <div class="menu-grid">
-      <article class="dish reveal"><span class="tag">Signature</span><figure><img src="assets/hiroshi-tonkotsu-ramen.png" alt="Hiroshi Tonkotsu Ramen"></figure><div class="body"><h3>Hiroshi Tonkotsu Ramen</h3><p>Rich pork-bone broth, chashu, soft-boiled egg, lotus root, scallions, and wood ear mushrooms.</p></div></article>
-      <article class="dish reveal d1"><span class="tag gold">Bright</span><figure><img src="assets/yuzu-shoyu-ramen.png" alt="Yuzu Shoyu Ramen"></figure><div class="body"><h3>Yuzu Shoyu Ramen</h3><p>Light citrus-kissed shoyu broth with chashu, nori, narutomaki, menma, and fresh scallions.</p></div></article>
-      <article class="dish reveal d2"><span class="tag">Crispy</span><figure><img src="assets/takoyaki.png" alt="Takoyaki topped with sauce and bonito flakes"></figure><div class="body"><h3>Takoyaki</h3><p>Crispy octopus balls drizzled with takoyaki sauce and mayo, topped with aonori and bonito flakes.</p></div></article>
-      <article class="dish reveal d3"><span class="tag gold">Light</span><figure><img src="assets/shio-ramen.png" alt="Shio Ramen"></figure><div class="body"><h3>Shio Ramen</h3><p>Sea-salt chicken broth with braised pork belly, egg, fish cake and seaweed — light, clean and savory.</p></div></article>
-      <article class="dish reveal d4"><span class="tag">Spicy</span><figure><img src="assets/tantanmen.png" alt="Tantanmen"></figure><div class="body"><h3>Tantanmen</h3><p>Creamy sesame tonkotsu soup topped with spicy ground pork, soft-boiled egg, fresh vegetables, and a touch of chili for the perfect spicy kick.</p></div></article>
-      <article class="dish reveal"><figure><img src="assets/chicken-katsu-teishoku.png" alt="Chicken Katsu Teishoku"></figure><div class="body"><h3>Chicken Katsu Teishoku</h3><p>Organic chicken breaded cutlet with rice, miso soup and side salad.</p></div></article>
+      <article class="dish reveal"><span class="tag">Signature</span><figure><img src="assets/hiroshi-tonkotsu-ramen.jpg" alt="Hiroshi Tonkotsu Ramen"></figure><div class="body"><h3>Hiroshi Tonkotsu Ramen</h3><p>Our signature tonkotsu pork soup with braised Berkshire pork belly, marinated soft-boiled egg, lotus root, black mushroom, bamboo shoot, green onion and red ginger — Hakata style with thin straight noodles.</p></div></article>
+      <article class="dish reveal d1"><span class="tag gold">Bright</span><figure><img src="assets/yuzu-shoyu-ramen.jpg" alt="Yuzu Shoyu Ramen"></figure><div class="body"><h3>Yuzu Shouyu Ramen</h3><p>Soy sauce–based chicken broth with a hint of Japanese yuzu citrus, topped with braised pork belly, soft-boiled egg, lotus root, fish cake, bamboo shoot, green onion and dried seaweed.</p></div></article>
+      <article class="dish reveal d2"><span class="tag">Crispy</span><figure><img src="assets/takoyaki.jpg" alt="Takoyaki topped with sauce and bonito flakes"></figure><div class="body"><h3>Takoyaki</h3><p>Crispy octopus balls drizzled with takoyaki sauce and mayo, topped with aonori and bonito flakes.</p></div></article>
+      <article class="dish reveal d3"><span class="tag gold">Light</span><figure><img src="assets/shio-ramen.jpg" alt="Shio Ramen"></figure><div class="body"><h3>Shio Ramen</h3><p>Sea salt–based clear chicken soup with braised pork belly, soft-boiled egg, lotus root, fish cake, bamboo shoot, Tokyo leek and dried seaweed.</p></div></article>
+      <article class="dish reveal d4"><span class="tag">Spicy</span><figure><img src="assets/tantanmen.jpg" alt="Tantanmen"></figure><div class="body"><h3>Tantanmen</h3><p>Creamy sesame-based tonkotsu soup with spicy ground pork, soft-boiled egg, kikurage mushroom, bok choy, bean sprouts, Tokyo leek and dried chili strings.</p></div></article>
+      <article class="dish reveal"><figure><img src="assets/chicken-katsu-teishoku.jpg" alt="Tonkatsu Teishoku"></figure><div class="body"><h3>Tonkatsu Teishoku</h3><p>Berkshire pork belly cutlet with rice, miso soup and side salad.</p></div></article>
     </div>
     <div class="menu-cta reveal"><a class="btn btn-red" href="menu.html">See the Full Menu →</a></div>
 
@@ -454,6 +439,7 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
         <span class="lim">Limited Time · Summer Special</span>
         <h3>Hiyashi Chuka — Chilled Summer Noodles</h3>
         <p>Cool down with our refreshing cold-noodle favorite: chilled noodles topped with fresh vegetables, savory toppings, and rich umami flavor. Light, satisfying, and perfect for warm days.</p>
+        <p>Also on the seasonal menu: Tsukemen — chilled noodles served with a rich, concentrated dipping broth.</p>
         <div style="margin-top:1.2rem"><a class="btn btn-red" href="#locations">Try It Today</a></div>
       </div>
       <img src="assets/summer-special.jpeg" alt="Hiyashi Chuka summer special">
@@ -586,25 +572,25 @@ footer::before{content:"いただきます";position:absolute;right:2rem;bottom:
 <script>
 /* ================= DATA ================= */
 const LOCATIONS=[
- {id:"san-ramon",name:"San Ramon",jp:"サンラモン",addr:"6000 Bollinger Canyon Rd #2501, San Ramon, CA 94583",
+ {id:"san-ramon",name:"San Ramon",addr:"6000 Bollinger Canyon Rd #2501, San Ramon, CA 94583",
   phone:"+1 925-380-6653",order:"https://order.boons.io/site/ramen-hiroshi-san-ramon/387/y",
   img:"assets/san-ramon.jpg",
   hours:{0:[["11:30","20:30"]],1:[["11:30","14:30"],["17:00","20:30"]],2:[["11:30","14:30"],["17:00","20:30"]],3:[["11:30","14:30"],["17:00","20:30"]],4:[["11:30","14:30"],["17:00","20:30"]],5:[["11:30","14:30"],["17:00","21:00"]],6:[["11:30","21:00"]]},
-  display:[["Mon – Thu","11:30 AM – 2:30 PM · 5:00 – 8:30 PM"],["Friday","11:30 AM – 2:30 PM · 5:00 – 9:00 PM"],["Saturday","11:30 AM – 9:00 PM"],["Sunday","11:30 AM – 8:30 PM"]],
+  display:[["Mon – Thu","11:30 AM – 2:30 PM · 5:00 – 8:30 PM"],["Friday","11:30 AM – 2:30 PM · 5:00 – 9:00 PM"],["Saturday","11:30 AM – 9:00 PM"],["Sunday","11:30 AM – 8:30 PM"],["Yakitori · Fri – Sun","5:00 – 8:30 PM"]],
   daymap:{1:0,2:0,3:0,4:0,5:1,6:2,0:3}},
- {id:"walnut-creek",name:"Walnut Creek",jp:"ウォルナットクリーク",addr:"1633 Bonanza St, Walnut Creek, CA 94596",
+ {id:"walnut-creek",name:"Walnut Creek",addr:"1633 Bonanza St, Walnut Creek, CA 94596",
   phone:"+1 925-942-0664",order:"https://order.boons.io/site/ramen-hiroshi-walnut-creek/388/y",
   img:"assets/walnut-creek.jpeg",
   hours:{0:[["11:30","20:30"]],1:[["11:30","14:30"],["17:00","20:30"]],2:[["11:30","14:30"],["17:00","20:30"]],3:[["11:30","14:30"],["17:00","20:30"]],4:[["11:30","14:30"],["17:00","20:30"]],5:[["11:30","14:30"],["17:00","21:00"]],6:[["11:30","21:00"]]},
   display:[["Mon – Thu","11:30 AM – 2:30 PM · 5:00 – 8:30 PM"],["Friday","11:30 AM – 2:30 PM · 5:00 – 9:00 PM"],["Saturday","11:30 AM – 9:00 PM"],["Sunday","11:30 AM – 8:30 PM"]],
   daymap:{1:0,2:0,3:0,4:0,5:1,6:2,0:3}},
- {id:"san-francisco",name:"San Francisco",jp:"サンフランシスコ",addr:"322 Kearny St, San Francisco, CA 94108",
+ {id:"san-francisco",name:"San Francisco",addr:"322 Kearny St, San Francisco, CA 94108",
   phone:"+1 415-997-0997",order:"https://order.boons.io/site/ramen-hiroshi-san-francisco/389/y",
   img:"assets/san-francisco.jpeg",
   hours:{0:[["11:30","14:30"],["15:30","19:00"]],1:[["11:00","20:00"]],2:[["11:00","20:00"]],3:[["11:00","20:00"]],4:[["11:00","21:00"]],5:[["11:00","21:00"]],6:[["11:30","21:00"]]},
-  display:[["Mon – Wed","11:00 AM – 8:00 PM"],["Thu – Fri","11:00 AM – 9:00 PM"],["Saturday","11:30 AM – 9:00 PM"],["Sunday","11:30 AM – 2:30 PM · 3:30 – 7:00 PM"]],
+  display:[["Mon – Wed","11:00 AM – 8:00 PM"],["Thu – Fri","11:00 AM – 9:00 PM"],["Saturday","11:30 AM – 9:00 PM"],["Sunday","11:30 AM – 2:30 PM · 3:30 – 7:00 PM"],["Yakitori · Thu – Sat","5:00 – 9:00 PM"]],
   daymap:{1:0,2:0,3:0,4:1,5:1,6:2,0:3}},
- {id:"emeryville",name:"Emeryville",jp:"エメリービル",addr:"5959 Shellmound St #10, Emeryville, CA 94608",
+ {id:"emeryville",name:"Emeryville",addr:"5959 Shellmound St #10, Emeryville, CA 94608",
   phone:"+1 925-380-6653",order:"https://order.boons.io/site/ramen-hiroshi-emeryville/391/y",
   img:"assets/emeryville.jpeg",
   hours:{0:[["11:30","19:45"]],1:[["11:30","19:45"]],2:[["11:30","19:45"]],3:[["11:30","19:45"]],4:[["11:30","19:45"]],5:[["11:30","20:00"]],6:[["11:30","20:00"]]},
@@ -636,7 +622,7 @@ function mapsLink(a){return"https://www.google.com/maps/search/?api=1&query="+en
 LOCATIONS.forEach((l,i)=>{
   const b=document.createElement("button");
   b.setAttribute("role","tab");
-  b.innerHTML=`<small>${l.jp}</small>${l.name}`;
+  b.textContent=l.name;
   b.onclick=()=>select(i);
   tabs.appendChild(b);
 });
@@ -651,7 +637,7 @@ function select(i){
   badge.className="loc-badge "+(open?"open":"closed");
   badgeTxt.textContent=open?"Open now":"Closed now";
   locInfo.innerHTML=`
-    <span class="num">Location 0${i+1} / 04 · ${l.jp}</span>
+    <span class="num">Location 0${i+1} / 04</span>
     <h3>${l.name}</h3>
     <p class="addr">${l.addr}</p>
     <div class="hours">${l.display.map((r,j)=>`<div class="${j===todayRow?"today":""}"><b>${r[0]}${j===todayRow?" · today":""}</b><span>${r[1]}</span></div>`).join("")}</div>
@@ -676,7 +662,7 @@ for(let i=0;i<9;i++){
   s.style.setProperty("--dx",(Math.random()*70-35)+"px");
   steam.appendChild(s);
 }
-const orbitTxt="AUTHENTIC · JAPANESE · RAMEN · 本格 · ラーメン · ",orbit=document.getElementById("orbit");
+const orbitTxt="AUTHENTIC · JAPANESE · RAMEN · SLOW SIMMERED · ",orbit=document.getElementById("orbit");
 orbitTxt.split("").forEach((ch,i)=>{
   const s=document.createElement("span");s.textContent=ch;
   const a=i/orbitTxt.length*360;

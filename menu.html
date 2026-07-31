@@ -43,7 +43,7 @@ body::before{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.05;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
 }
-::selection{background:var(--aka);color:#fff}
+::selection{background:var(--site-ink);color:#fff}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:var(--body)}
@@ -83,7 +83,6 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.25}
 #site-nav.open .burger span:nth-child(2){opacity:0}
 #site-nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .site-footer{background:var(--site-ink);color:var(--paper);padding:5rem 0 2rem;position:relative;overflow:hidden}
-.site-footer::before{content:"いただきます";position:absolute;right:2rem;bottom:-1.2rem;font-family:'Shippori Mincho B1',serif;font-size:6rem;color:rgba(251,245,233,.05);white-space:nowrap}
 .site-footer .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid var(--line-light)}
 .site-footer .foot-grid h4{font-family:'Shippori Mincho B1',serif;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;color:var(--gold);margin-bottom:1rem}
 .site-footer .foot-grid a{display:block;padding:.28rem 0;color:rgba(251,245,233,.72);font-size:.92rem;transition:.25s}
@@ -204,7 +203,7 @@ body.sb-open .scrim{opacity:1;pointer-events:auto}
 .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.7rem;letter-spacing:.42em;text-transform:uppercase;color:var(--kin);margin-bottom:16px}
 .eyebrow::before{content:"";width:34px;height:1px;background:var(--kin)}
 .m-hero h1{font-size:clamp(2.2rem,4.4vw,3.8rem);font-weight:700}
-.m-hero h1 span{color:var(--aka)}
+.m-hero h1 span{color:inherit}
 .m-hero p{max-width:560px;margin-top:16px;color:var(--kome-dim);font-size:.98rem}
 .m-hero .stats{display:flex;gap:34px;margin-top:34px;flex-wrap:wrap}
 .m-hero .stats div{border-left:1px solid var(--line);padding-left:14px}
@@ -214,12 +213,6 @@ body.sb-open .scrim{opacity:1;pointer-events:auto}
 /* noren strip */
 .noren{height:50px;position:relative;overflow:hidden;background:var(--aka)}
 .noren::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(20% - 1px),rgba(22,16,12,.35) calc(20% - 1px) 20%)}
-.noren::after{
-  content:"御 品 書 · お し な が き · 御 品 書 · お し な が き · 御 品 書 · お し な が き · 御 品 書 · お し な が き";
-  position:absolute;inset:0;display:flex;align-items:center;white-space:nowrap;
-  font-family:var(--disp);color:rgba(255,255,255,.85);letter-spacing:.7em;font-size:.8rem;
-  animation:marquee 42s linear infinite;
-}
 
 /* categories */
 .menu-wrap{max-width:1180px;margin:0 auto;padding:0 4vw}
@@ -377,7 +370,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
     <img src="assets/logo.jpg" alt="Ramen Hiroshi logo">
     Ramen Hiroshi
   </a>
-  <button class="tb-btn" onclick="document.body.classList.toggle('sb-open')" aria-label="Open menu categories"><span class="jp">品</span> Categories</button>
+  <button class="tb-btn" onclick="document.body.classList.toggle('sb-open')" aria-label="Open menu categories">Categories</button>
 </div>
 <div class="scrim" onclick="document.body.classList.remove('sb-open')"></div>
 
@@ -386,27 +379,29 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 <!-- ============ SIDEBAR ============ -->
 <aside class="sidebar" aria-label="Menu navigation">
 
-  <div class="sb-title"><span>Search the Menu</span><span class="jp">探</span></div>
+  <div class="sb-title"><span>Search the Menu</span></div>
   <div class="sb-search">
     <div class="box">
       <input id="q" type="search" placeholder="Try &quot;tonkotsu&quot;, &quot;gyoza&quot;…" autocomplete="off" aria-label="Search menu items">
-      <span class="ic">品</span>
     </div>
   </div>
 
-  <div class="sb-title"><span>Categories</span><span class="jp">御品書</span></div>
+  <div class="sb-title"><span>Categories</span></div>
   <nav class="sb-nav" id="sbnav">
-    <button class="sb-link active" data-cat="ramen"><span class="kj">麺</span><span class="lbl">Signature Ramen</span><span class="cnt">8</span></button>
-    <button class="sb-link" data-cat="chicken"><span class="kj">鶏</span><span class="lbl">Chicken Ramen</span><span class="cnt">4</span></button>
-    <button class="sb-link" data-cat="starters"><span class="kj">前</span><span class="lbl">Starters &amp; Salads</span><span class="cnt">9</span></button>
-    <button class="sb-link" data-cat="fried"><span class="kj">揚</span><span class="lbl">Fried</span><span class="cnt">10</span></button>
-    <button class="sb-link" data-cat="teishoku"><span class="kj">膳</span><span class="lbl">Teishoku Sets</span><span class="cnt">4</span></button>
-    <button class="sb-link" data-cat="yakitori"><span class="kj">串</span><span class="lbl">Yakitori</span><span class="cnt">13</span></button>
-    <button class="sb-link" data-cat="drinks"><span class="kj">飲</span><span class="lbl">Drinks</span><span class="cnt">13</span></button>
+    <button class="sb-link active" data-cat="ramen"><span class="lbl">Signature Ramen</span><span class="cnt">8</span></button>
+    <button class="sb-link" data-cat="chicken"><span class="lbl">Chicken Ramen</span><span class="cnt">4</span></button>
+    <button class="sb-link" data-cat="vegetarian"><span class="lbl">Vegetarian Ramen</span><span class="cnt">2</span></button>
+    <button class="sb-link" data-cat="seasonal"><span class="lbl">Seasonal</span><span class="cnt">2</span></button>
+    <button class="sb-link" data-cat="starters"><span class="lbl">Starters &amp; Salads</span><span class="cnt">9</span></button>
+    <button class="sb-link" data-cat="fried"><span class="lbl">Fried</span><span class="cnt">11</span></button>
+    <button class="sb-link" data-cat="teishoku"><span class="lbl">Teishoku Sets</span><span class="cnt">5</span></button>
+    <button class="sb-link" data-cat="yakitori"><span class="lbl">Yakitori</span><span class="cnt">13</span></button>
+    <button class="sb-link" data-cat="drinks"><span class="lbl">Drinks</span><span class="cnt">13</span></button>
+    <button class="sb-link" data-cat="alcohol"><span class="lbl">Beer &amp; Sake</span><span class="cnt">10</span></button>
   </nav>
 
   <div class="sb-foot">
-    <div class="sb-note"><b>一杯入魂</b> · Soul in every bowl</div>
+    <div class="sb-note">Soul in every bowl</div>
   </div>
 </aside>
 
@@ -416,13 +411,11 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 <div class="main">
 
   <section class="m-hero">
-    <span class="kanji" aria-hidden="true">品</span>
-    <span class="eyebrow">御品書 · Oshinagaki</span>
+    <span class="eyebrow">Our Menu</span>
     <h1>The Hiroshi <span>Menu</span></h1>
-    <p>Presented as meal tickets from the shokkenki machine, the way ramen shops in Japan do it. Browse by category from the sidebar, then order at your nearest location.</p>
     <div class="stats">
-      <div><div class="n">61</div><div class="l">Dishes &amp; Drinks</div></div>
-      <div><div class="n">7</div><div class="l">Categories</div></div>
+      <div><div class="n">77</div><div class="l">Dishes &amp; Drinks</div></div>
+      <div><div class="n">10</div><div class="l">Categories</div></div>
       <div><div class="n">12hr</div><div class="l">Simmered Broth</div></div>
     </div>
   </section>
@@ -433,118 +426,144 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- RAMEN -->
     <section class="cat" id="ramen">
-      <div class="cat-head rv"><span class="jp">麺</span><h2>Signature Ramen</h2><span class="note">The Heart of Hiroshi</span></div>
+      <div class="cat-head rv"><h2>Signature Ramen</h2><span class="note">The Heart of Hiroshi</span></div>
       <p class="cat-sub rv">Slow-simmered broths, noodles matched to each bowl, and toppings prepped fresh every morning.</p>
       <div class="tickets">
         <article class="ticket rv">
-          <div class="t-img"><span class="badge">看板 · Signature</span><img src="assets/hiroshi-tonkotsu-ramen.png" alt="Hiroshi Tonkotsu Ramen"></div>
+          <div class="t-img"><span class="badge">Signature</span><img src="assets/hiroshi-tonkotsu-ramen.jpg" alt="Hiroshi Tonkotsu Ramen"></div>
           <div class="t-body">
             <div class="t-top"><h3>Hiroshi Tonkotsu</h3><span class="price">$18</span></div>
-            <p>Rich pork-bone broth with braised pork belly, marinated egg and fresh toppings. Hakata-style thin noodles crafted to complement the deep, savory flavor.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+            <p>Housemade Hakata-style tonkotsu broth slow-simmered for hours from pork bones, infused with sea salt and dashi. Topped with braised Berkshire pork belly, marinated soft-boiled egg, lotus root, black mushroom, bamboo shoot, green onion and pickled red ginger. Served with thin straight noodles.</p>
           </div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/2026/06/Shio-Ramen.avif" alt="Tonkotsu Shouyu Ramen"></div>
-          <div class="t-body">
+          <div class="t-body" style="padding-top:24px">
             <div class="t-top"><h3>Tonkotsu Shouyu</h3><span class="price">$18</span></div>
-            <p>Soy-based tonkotsu with braised pork belly, egg and fresh toppings. Thin straight noodles for a rich, balanced flavor.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+            <p>Soy sauce–based tonkotsu broth with braised Berkshire pork belly slices, marinated soft-boiled egg, lotus root, black mushroom, bamboo shoot, green onion and pickled red ginger. Served with thin straight noodles.</p>
           </div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/shio-ramen.png" alt="Shio Ramen"></div>
+          <div class="t-img"><img src="assets/shio-ramen.jpg" alt="Shio Ramen"></div>
           <div class="t-body">
             <div class="t-top"><h3>Shio Ramen</h3><span class="price">$17</span></div>
-            <p>Sea-salt chicken broth with braised pork belly, egg, fish cake and seaweed — light, clean and savory.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+            <p>Our sea salt–based clear chicken soup with curly noodles, topped with braised pork belly, soft-boiled egg, lotus root, fish cake, seasoned bamboo shoot, Tokyo leek and dried seaweed.</p>
           </div>
         </article>
         <article class="ticket rv">
           <div class="t-body" style="padding-top:24px">
             <div class="t-top"><h3>Shouyu Ramen</h3><span class="price">$17</span></div>
-            <p>Soy-sauce chicken broth with braised pork belly, marinated soft-boiled egg, lotus root, fish cake, bamboo shoot, green onion and dried seaweed.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+            <p>Our soy sauce–based clear chicken soup with curly noodles, topped with braised pork belly, soft-boiled egg, lotus root, fish cake, seasoned bamboo shoot, Tokyo leek and dried seaweed.</p>
           </div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><span class="badge">柚子 · Yuzu</span><img src="assets/yuzu-shoyu-ramen.png" alt="Yuzu Shoyu Ramen"></div>
+          <div class="t-img"><span class="badge">Yuzu</span><img src="assets/yuzu-shoyu-ramen.jpg" alt="Yuzu Shouyu Ramen"></div>
           <div class="t-body">
-            <div class="t-top"><h3>Yuzu Shoyu</h3><span class="price">$18</span></div>
-            <p>Soy-sauce chicken broth brightened with Japanese yuzu citrus — pork belly, egg, lotus root, bok choy, bean sprouts and seaweed.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+            <div class="t-top"><h3>Yuzu Shouyu Ramen</h3><span class="price">$18</span></div>
+            <p>Soy sauce–based chicken broth with a hint of Japanese yuzu citrus, topped with braised pork belly slices, marinated soft-boiled egg, lotus root, fish cake, bamboo shoot, green onion and dried seaweed.</p>
           </div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/miso-ramen.png" alt="Miso Ramen"></div>
+          <div class="t-img"><img src="assets/miso-ramen.jpg" alt="Miso Ramen"></div>
           <div class="t-body">
             <div class="t-top"><h3>Miso Ramen</h3><span class="price">$19</span></div>
-            <p>Chicken-and-pork broth blended with a variety of miso, topped with pork belly, egg, corn, cabbage, bean sprouts, chives and green onion.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+            <p>Rich miso (fermented bean paste) based soup with a delicious combination of braised pork belly, soft-boiled egg, lotus root, seasoned bamboo shoot, corn, cabbage, bean sprouts, chives and Tokyo leek. Not vegetarian.</p>
           </div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><span class="badge">辛 · Spicy</span><img src="assets/tantanmen.png" alt="Tantanmen"></div>
+          <div class="t-img"><span class="badge">Spicy</span><img src="assets/tantanmen.jpg" alt="Tantanmen"></div>
           <div class="t-body">
             <div class="t-top"><h3>Tantanmen</h3><span class="price">$19</span></div>
-            <p>Creamy sesame tonkotsu broth with spicy ground pork, egg, black mushroom, bok choy, bean sprouts and onion leek.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+            <p>Our creamy sesame-based tonkotsu soup topped with spicy ground pork, soft-boiled egg, lotus root, seasoned bamboo shoot, kikurage mushroom, bok choy, bean sprouts, Tokyo leek and dried chili strings — a must-try for those who love a little spice.</p>
           </div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><span class="badge">自由 · Build Your Own</span><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/o-21-rks69m5qpx9w97l7s2u13f85bc8ridkj42x4oeb0no.jpg" alt="Build your own ramen bowl"></div>
-          <div class="t-body">
-            <div class="t-top"><h3>Build-Your-Own Ramen</h3><span class="price">Ask</span></div>
-            <p>Choose your broth, your noodle and your toppings — your perfect bowl, your rules.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          <div class="t-body" style="padding-top:24px">
+            <div class="t-top"><h3>Build-Your-Own Ramen</h3><span class="price">$10+</span></div>
+            <p>Choose your soup base and noodle, then add toppings of your choice — your perfect bowl, your rules.</p>
           </div>
         </article>
       </div>
       <div class="addons rv">
-        <h3>替玉 &amp; Broth Add-Ons</h3>
+        <h3>Extras &amp; Add-Ons</h3>
         <div class="row">
-          <span>Extra Thin Straight Noodle</span><span>Extra Thick Curly Noodle</span>
-          <span>Extra Tonkotsu Broth</span><span>Extra Tonkotsu Shoyu Broth</span>
-          <span>Extra Shio Broth</span><span>Extra Shouyu Broth</span>
-          <span>Extra Yuzu Broth</span><span>Extra Miso (Pork-Chicken) Broth</span>
-          <span><b>Cha-Shu +$10</b> — signature braised pork belly slices</span>
+          <span><b>Extra Broth +$5</b></span>
+          <span><b>Extra Noodle +$5</b> each — straight thin or curly</span>
+          <span><b>Extra Meat +$5</b> each — Berkshire pork chashu / organic chicken chashu / spicy ground pork</span>
+          <span><b>Extra Whole Egg / Fishcake +$3</b> each</span>
+          <span><b>Extra Vegetable +$2</b> each — bamboo shoot, bean sprouts, bok choy, cabbage, corn, green onion, kikurage mushroom, lotus root, seaweed, spinach</span>
         </div>
       </div>
     </section>
 
     <!-- CHICKEN RAMEN -->
     <section class="cat" id="chicken">
-      <div class="cat-head rv"><span class="jp">鶏</span><h2>Chicken Ramen</h2><span class="note">Lighter, Just as Deep</span></div>
-      <p class="cat-sub rv">Clean chicken broths with the same care, depth and fresh toppings as our signature bowls.</p>
+      <div class="cat-head rv"><h2>Chicken Ramen</h2><span class="note">Lighter, Just as Deep</span></div>
+      <p class="cat-sub rv">Clean chicken broths with the same care, depth and fresh toppings as our signature bowls — topped with braised organic chicken slices.</p>
       <div class="tickets">
         <article class="ticket rv">
           <div class="t-body" style="padding-top:24px">
             <div class="t-top"><h3>Shio Chicken</h3><span class="price">$17</span></div>
-            <p>Sea-salt chicken broth with braised chashu, marinated egg, lotus root, fish cake, bamboo shoot and seaweed.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+            <p>Our sea salt–based clear chicken soup topped with braised chicken, soft-boiled egg, lotus root, fish cake, seasoned bamboo shoot, Tokyo leek and dried seaweed.</p>
           </div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/shoyu-chicken-ramen.png" alt="Shoyu Chicken Ramen"></div>
-          <div class="t-body">
-            <div class="t-top"><h3>Shoyu Chicken</h3><span class="price">$17</span></div>
-            <p>Soy-sauce chicken broth topped with braised chicken chashu, marinated egg, lotus root, fish cake and green onion.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          <div class="t-body" style="padding-top:24px">
+            <div class="t-top"><h3>Shouyu Chicken</h3><span class="price">$17</span></div>
+            <p>Our soy sauce–based clear chicken soup topped with braised chicken, soft-boiled egg, lotus root, fish cake, seasoned bamboo shoot, Tokyo leek and dried seaweed.</p>
           </div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><span class="badge">柚子 · Yuzu</span><img src="assets/yuzu-shoyu-ramen.png" alt="Yuzu Shoyu Chicken Ramen"></div>
-          <div class="t-body">
-            <div class="t-top"><h3>Yuzu Shoyu Chicken</h3><span class="price">$18</span></div>
-            <p>Soy-sauce chicken broth with yuzu citrus, braised chicken, egg, bok choy, bean sprouts and dried seaweed.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+          <div class="t-body" style="padding-top:24px">
+            <div class="t-top"><h3>Yuzu Shouyu Chicken</h3><span class="price">$18</span></div>
+            <p>Soy sauce–based chicken broth with a hint of Japanese yuzu citrus, topped with braised chicken, marinated soft-boiled egg, lotus root, fish cake, bamboo shoot, green onion and dried seaweed.</p>
           </div>
         </article>
         <article class="ticket rv">
           <div class="t-body" style="padding-top:24px">
             <div class="t-top"><h3>Miso Chicken</h3><span class="price">$19</span></div>
-            <p>Chicken broth blended with a variety of miso, topped with chicken chashu, egg, corn, cabbage, bean sprouts and chives.</p>
-            <div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div>
+            <p>Rich miso (fermented bean paste) based chicken soup with braised chicken, soft-boiled egg, lotus root, seasoned bamboo shoot, corn, cabbage, bean sprouts, chives and Tokyo leek.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- VEGETARIAN RAMEN -->
+    <section class="cat" id="vegetarian">
+      <div class="cat-head rv"><h2>Vegetarian Ramen</h2><span class="note">Plant-Based Comfort</span></div>
+      <p class="cat-sub rv">Meat-free bowls built on a soy sauce–infused konbu and shiitake broth, with the same depth and care as every Hiroshi ramen.</p>
+      <div class="tickets">
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">Vegetarian</span><img src="assets/vegetarian-ramen.jpg" alt="Shoyu Vegetarian Ramen"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Shoyu Vegetarian Ramen</h3><span class="price">$18</span></div>
+            <p>Crafted from soy sauce–infused konbu and shiitake broth, it comes with curly noodles, marinated soft-boiled egg, green onion, shiitake mushroom and dried seaweed.</p>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-body" style="padding-top:24px">
+            <div class="t-top"><h3>Yuzu Vegetarian Ramen</h3><span class="price">$18</span></div>
+            <p>A twist on our Shoyu Vegetarian with an addition of yuzu pepper for a little zing.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SEASONAL -->
+    <section class="cat" id="seasonal">
+      <div class="cat-head rv"><h2>Seasonal</h2><span class="note">Limited Time</span></div>
+      <p class="cat-sub rv">Rotating specials that follow the seasons — here for a short while, so catch them while you can.</p>
+      <div class="tickets">
+        <article class="ticket rv">
+          <div class="t-img"><span class="badge">Summer</span><img src="assets/summer-special.jpeg" alt="Hiyashi Chuka chilled summer noodles"></div>
+          <div class="t-body">
+            <div class="t-top"><h3>Hiyashi Chuka</h3><span class="price">Ask</span></div>
+            <p>Chilled noodles topped with fresh vegetables and savory toppings in a light, tangy sauce — refreshing and perfect for warm days.</p>
+          </div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-body" style="padding-top:24px">
+            <div class="t-top"><h3>Tsukemen</h3><span class="price">Ask</span></div>
+            <p>Dipping ramen — chilled noodles served alongside a rich, concentrated broth for dipping, finished with our signature toppings.</p>
           </div>
         </article>
       </div>
@@ -552,124 +571,132 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- STARTERS -->
     <section class="cat" id="starters">
-      <div class="cat-head rv"><span class="jp">前</span><h2>Starters &amp; Salads</h2><span class="note">Izakaya Style</span></div>
+      <div class="cat-head rv"><h2>Starters &amp; Salads</h2><span class="note">Izakaya Style</span></div>
       <p class="cat-sub rv">Small plates made fresh daily — the perfect opening act for your bowl.</p>
       <div class="tickets">
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/edamame.png" alt="Edamame"></div>
-          <div class="t-body"><div class="t-top"><h3>Edamame</h3><span class="price">$5</span></div><p>Boiled soybeans with sea salt.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/edamame.jpg" alt="Edamame"></div>
+          <div class="t-body"><div class="t-top"><h3>Edamame</h3><span class="price">$5</span></div><p>Boiled soybeans.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/horenso-goma-ae.png" alt="Horenso Goma Ae"></div>
-          <div class="t-body"><div class="t-top"><h3>Horenso Goma Ae</h3><span class="price">$6</span></div><p>Blanched spinach salad in nutty sesame sauce.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/horenso-goma-ae.jpg" alt="Hourensou Goma Ae"></div>
+          <div class="t-body"><div class="t-top"><h3>Hourensou Goma Ae</h3><span class="price">$6</span></div><p>Blanched spinach in sesame sauce.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/kyuuri-tataki.png" alt="Kyuuri Tataki"></div>
-          <div class="t-body"><div class="t-top"><h3>Kyuuri Tataki</h3><span class="price">$6</span></div><p>Japanese cucumber mildly seasoned with shio koji.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/kyuuri-tataki.jpg" alt="Kyuuri Tataki"></div>
+          <div class="t-body"><div class="t-top"><h3>Kyuuri Tataki</h3><span class="price">$6</span></div><p>Japanese cucumber mildly seasoned with shio koji (fermented salt).</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/renkon-mentai-ae.png" alt="Renkon Mentai Ae"></div>
-          <div class="t-body"><div class="t-top"><h3>Renkon Mentai Ae</h3><span class="price">$8</span></div><p>Lotus root in a spicy cod-roe dressing.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/renkon-mentai-ae.jpg" alt="Renkon Mentai Ae"></div>
+          <div class="t-body"><div class="t-top"><h3>Renkon Mentai Ae</h3><span class="price">$8</span></div><p>Lotus root in spicy cod roe dressing.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/tsukemono-moriawase.png" alt="Tsukemono Moriawase"></div>
-          <div class="t-body"><div class="t-top"><h3>Tsukemono Moriawase</h3><span class="price">$9</span></div><p>Assorted house-pickled vegetables.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/tsukemono-moriawase.jpg" alt="Tsukemono Moriawase"></div>
+          <div class="t-body"><div class="t-top"><h3>Tsukemono Moriawase</h3><span class="price">$9</span></div><p>Assorted pickled vegetables.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/arabiki-sausage.png" alt="Arabiki Sausage"></div>
-          <div class="t-body"><div class="t-top"><h3>Arabiki Sausage</h3><span class="price">$9</span></div><p>Japanese kurobuta pork sausage, grilled and juicy.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><span class="badge">Signature</span><img src="assets/cha-shu.jpg" alt="Cha-Shu braised pork belly"></div>
+          <div class="t-body"><div class="t-top"><h3>Cha-Shu</h3><span class="price">$10</span></div><p>Our signature braised pork belly slices.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/daikon-salad.png" alt="Daikon Salad"></div>
-          <div class="t-body"><div class="t-top"><h3>Daikon Salad</h3><span class="price">$10</span></div><p>Japanese radish salad with sea salt–sesame oil dressing.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/daikon-salad.jpg" alt="Daikon Salad"></div>
+          <div class="t-body"><div class="t-top"><h3>Daikon Salad</h3><span class="price">$10</span></div><p>Japanese radish salad with sea salt–sesame oil dressing.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/house-salad.png" alt="House Salad"></div>
-          <div class="t-body"><div class="t-top"><h3>House Salad</h3><span class="price">$10</span></div><p>Spring greens with soft-boiled egg slices in yuzu-mayo dressing.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/house-salad.jpg" alt="House Salad"></div>
+          <div class="t-body"><div class="t-top"><h3>House Salad</h3><span class="price">$10</span></div><p>Spring mixed greens with soft-boiled egg slices, tomatoes, dried bonito flakes, sesame seeds and crispy noodles, in your choice of dressing: yuzu-mayo or plum shiso vinaigrette.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><span class="badge">看板 · Signature</span><img src="assets/cha-shu.png" alt="Cha-Shu braised pork belly"></div>
-          <div class="t-body"><div class="t-top"><h3>Cha-Shu</h3><span class="price">$10</span></div><p>Our signature braised pork belly slices.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/mizuna-salad.jpg" alt="Mizuna Salad"></div>
+          <div class="t-body"><div class="t-top"><h3>Mizuna Salad</h3><span class="price">$10</span></div><p>A refreshing Japanese mustard green salad in house plum shiso dressing.</p></div>
         </article>
       </div>
     </section>
 
     <!-- FRIED -->
     <section class="cat" id="fried">
-      <div class="cat-head rv"><span class="jp">揚</span><h2>Fried</h2><span class="note">Crisp &amp; Golden</span></div>
+      <div class="cat-head rv"><h2>Fried</h2><span class="note">Crisp &amp; Golden</span></div>
       <p class="cat-sub rv">Golden, crunchy and made to order — from Hiroshi's famous karaage to street-festival takoyaki.</p>
       <div class="tickets">
         <article class="ticket rv">
-          <div class="t-img"><span class="badge">名物 · Famous</span><img src="assets/chicken-karaage.png" alt="Chicken Karaage"></div>
-          <div class="t-body"><div class="t-top"><h3>Chicken Karaage</h3><span class="price">$10</span></div><p>Hiroshi's famous marinated fried chicken pieces.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><span class="badge">Famous</span><img src="assets/chicken-karaage.jpg" alt="Chicken Karaage"></div>
+          <div class="t-body"><div class="t-top"><h3>Chicken Karaage</h3><span class="price">$10</span></div><p>Hiroshi's own twist on Japanese traditional fried chicken pieces.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/hanetsuki-gyoza.png" alt="Hanetsuki Gyoza"></div>
-          <div class="t-body"><div class="t-top"><h3>Hanetsuki Gyouza</h3><span class="price">$10</span></div><p>House-made pork dumplings with a crispy thin "wing" crust, served with soy-chili sauce.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/arabiki-sausage.jpg" alt="Arabiki Sausage"></div>
+          <div class="t-body"><div class="t-top"><h3>Arabiki Sausage</h3><span class="price">$9</span></div><p>Japanese kurobuta sausages.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/deep-fried-gyoza.png" alt="Deep Fried Gyoza"></div>
-          <div class="t-body"><div class="t-top"><h3>Deep Fried Gyouza</h3><span class="price">$10</span></div><p>Pork dumplings fried until deeply golden and crisp.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/hanetsuki-gyoza.jpg" alt="Hanetsuki Gyouza"></div>
+          <div class="t-body"><div class="t-top"><h3>Hanetsuki Gyouza</h3><span class="price">$10</span></div><p>Our house-made pork dumplings with thin crust, served with soy-chili sauce.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/takoyaki.png" alt="Takoyaki"></div>
-          <div class="t-body"><div class="t-top"><h3>Takoyaki</h3><span class="price">$9</span></div><p>Street-festival octopus balls topped with bonito flakes, seaweed powder and red ginger.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/deep-fried-gyoza.jpg" alt="Deep Fried Gyouza"></div>
+          <div class="t-body"><div class="t-top"><h3>Deep Fried Gyouza</h3><span class="price">$10</span></div><p>Deep-fried house-made pork dumplings.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/salt-pepper-wings.png" alt="Salt and Pepper Chicken Wings"></div>
-          <div class="t-body"><div class="t-top"><h3>Salt &amp; Pepper Wings</h3><span class="price">$9</span></div><p>Juicy fried wings sprinkled with Japanese salt and pepper.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/takoyaki.jpg" alt="Takoyaki"></div>
+          <div class="t-body"><div class="t-top"><h3>Takoyaki</h3><span class="price">$9</span></div><p>A Japanese street-festival favorite — octopus balls topped with dried bonito flakes, seaweed powder and red ginger.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><span class="badge">辛 · Spicy</span><img src="assets/spicy-chicken-wings.png" alt="Spicy Chicken Wings"></div>
-          <div class="t-body"><div class="t-top"><h3>Spicy Chicken Wings</h3><span class="price">$9</span></div><p>Fried wings tossed in our original spicy sauce.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/salt-pepper-wings.jpg" alt="Salt and Pepper Chicken Wings"></div>
+          <div class="t-body"><div class="t-top"><h3>Salt &amp; Pepper Chicken Wings</h3><span class="price">$9</span></div><p>Juicy fried chicken wings sprinkled with Japanese salt and pepper.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/ika-geso-age.png" alt="Ika Geso Age"></div>
-          <div class="t-body"><div class="t-top"><h3>Ika Geso Age</h3><span class="price">$10</span></div><p>Crispy fried squid legs.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><span class="badge">Spicy</span><img src="assets/spicy-chicken-wings.jpg" alt="Spicy Chicken Wings"></div>
+          <div class="t-body"><div class="t-top"><h3>Spicy Chicken Wings</h3><span class="price">$9</span></div><p>Fried chicken wings in our original spicy sauce.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/nankotsu-karaage.png" alt="Nankotsu Karaage"></div>
-          <div class="t-body"><div class="t-top"><h3>Nankotsu Karaage</h3><span class="price">$9</span></div><p>Fried chicken cartilage — crunchy izakaya classic.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/ika-geso-age.jpg" alt="Ika Geso Age"></div>
+          <div class="t-body"><div class="t-top"><h3>Ika Geso Age</h3><span class="price">$10</span></div><p>Fried squid legs.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/renkon-chips.png" alt="Renkon Chips"></div>
-          <div class="t-body"><div class="t-top"><h3>Renkon Chips</h3><span class="price">$8</span></div><p>Lotus root chips, fried thin and crisp.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/nankotsu-karaage.jpg" alt="Nankotsu Karaage"></div>
+          <div class="t-body"><div class="t-top"><h3>Nankotsu Karaage</h3><span class="price">$9</span></div><p>Fried chicken cartilage.</p></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="assets/renkon-chips.jpg" alt="Renkon Chips"></div>
+          <div class="t-body"><div class="t-top"><h3>Renkon Chips</h3><span class="price">$8</span></div><p>Lotus root chips.</p></div>
         </article>
         <article class="ticket rv">
           <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/Mentai-Potato-ror0tfx896ntlp66tb36a3jqbxjziusxvt1h2lyx78.avif" alt="Mentai Potato"></div>
-          <div class="t-body"><div class="t-top"><h3>Mentai Potato</h3><span class="price">$8</span></div><p>Fried potatoes with spicy cod-roe sauce.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-body"><div class="t-top"><h3>Mentai Potato</h3><span class="price">$8</span></div><p>Fried potatoes with spicy cod roe sauce.</p></div>
         </article>
       </div>
     </section>
 
     <!-- TEISHOKU -->
     <section class="cat" id="teishoku">
-      <div class="cat-head rv"><span class="jp">膳</span><h2>Teishoku Sets</h2><span class="note">The Complete Meal</span></div>
+      <div class="cat-head rv"><h2>Teishoku Sets</h2><span class="note">The Complete Meal</span></div>
       <p class="cat-sub rv">Traditional Japanese set meals — a main dish served with steamed rice, miso soup and a fresh side salad.</p>
       <div class="tickets">
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/chicken-katsu-teishoku.png" alt="Katsu Teishoku"></div>
-          <div class="t-body"><div class="t-top"><h3>Katsu Teishoku</h3><span class="price">$20</span></div><p>Breaded pork or chicken cutlet with steamed rice, miso soup and fresh side salad.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/chicken-katsu-teishoku.jpg" alt="Tonkatsu Teishoku"></div>
+          <div class="t-body"><div class="t-top"><h3>Tonkatsu Teishoku</h3><span class="price">$20</span></div><p>Berkshire pork belly cutlet with rice, miso soup and side salad.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/saba-no-teishoku.png" alt="Saba no Teishoku"></div>
-          <div class="t-body"><div class="t-top"><h3>Saba no Teishoku</h3><span class="price">$20</span></div><p>Grilled mackerel with steamed rice, miso soup and a fresh side salad.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-body" style="padding-top:24px"><div class="t-top"><h3>Chicken Katsu Teishoku</h3><span class="price">$20</span></div><p>Organic chicken breaded cutlet with rice, miso soup and side salad.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/IMG_0503-roshgl4tl2yzqid9hzt6zd5ja6mltpearwhd9i0pzo.jpeg" alt="Karaage Teishoku"></div>
-          <div class="t-body"><div class="t-top"><h3>Karaage Teishoku</h3><span class="price">$18</span></div><p>Japanese-style marinated fried chicken pieces with rice, miso soup and side salad.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="assets/saba-no-teishoku.jpg" alt="Saba Teishoku"></div>
+          <div class="t-body"><div class="t-top"><h3>Saba Teishoku</h3><span class="price">$20</span></div><p>Grilled mackerel with rice, miso soup and side salad.</p></div>
         </article>
         <article class="ticket rv">
-          <div class="t-img"><img src="assets/gindara-no-kasuzuke.png" alt="Gindara no Kasuzuke"></div>
-          <div class="t-body"><div class="t-top"><h3>Gindara no Kasuzuke</h3><span class="price">$20</span></div><p>Miso-marinated black cod grilled to perfection, with rice, miso soup and side salad.</p><div class="t-foot"><span>Meal Ticket · 食券</span><span class="stamp">ひろし</span></div></div>
+          <div class="t-img"><img src="https://ramenhiroshi.com/wp-content/uploads/elementor/thumbs/IMG_0503-roshgl4tl2yzqid9hzt6zd5ja6mltpearwhd9i0pzo.jpeg" alt="Chicken Karaage Teishoku"></div>
+          <div class="t-body"><div class="t-top"><h3>Chicken Karaage Teishoku</h3><span class="price">$18</span></div><p>Crispy marinated fried chicken pieces with rice, miso soup and side salad.</p></div>
+        </article>
+        <article class="ticket rv">
+          <div class="t-img"><img src="assets/gindara-no-kasuzuke.jpg" alt="Gindara Teishoku"></div>
+          <div class="t-body"><div class="t-top"><h3>Gindara Teishoku</h3><span class="price">$20</span></div><p>Grilled miso-marinated cod with rice, miso soup and side salad.</p></div>
         </article>
       </div>
     </section>
 
     <!-- YAKITORI -->
     <section class="cat" id="yakitori">
-      <div class="cat-head rv"><span class="jp">串</span><h2>Yakitori</h2><span class="note">Fri – Sun · 5:30–8:30 PM</span></div>
-      <p class="cat-sub rv">Charcoal-grilled skewers, $4 each — served weekend evenings only, the way a true yakitori-ya does it.</p>
+      <div class="cat-head rv"><h2>Yakitori</h2><span class="note">San Ramon &amp; San Francisco</span></div>
+      <p class="cat-sub rv">Skewers grilled over Binchotan — the prized Japanese white charcoal whose clean, intense, smokeless heat sears each skewer to juicy perfection with a subtle smoky finish. $4 each.</p>
+      <p class="cat-sub rv" style="margin-top:-28px">Served evenings only: <b>San Ramon</b> Fri – Sun, 5:00 – 8:30 PM · <b>San Francisco</b> Thu – Sat, 5:00 – 9:00 PM. Order online for <a href="https://order.boons.io/site/ramen-hiroshi-san-ramon/387/y" target="_blank" rel="noopener" style="text-decoration:underline">San Ramon</a> or <a href="https://order.boons.io/site/ramen-hiroshi-san-francisco/389/y" target="_blank" rel="noopener" style="text-decoration:underline">San Francisco</a>.</p>
       <div class="tickets compact">
         <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Momo</h3><span class="price">$4</span></div><p>Chicken thigh</p></div></article>
         <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Negima</h3><span class="price">$4</span></div><p>Chicken thigh with leek</p></div></article>
@@ -689,28 +716,44 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- DRINKS -->
     <section class="cat" id="drinks">
-      <div class="cat-head rv"><span class="jp">飲</span><h2>Drinks</h2><span class="note">Something Refreshing</span></div>
-      <p class="cat-sub rv">Japanese sodas, teas and classics to round out your meal.</p>
+      <div class="cat-head rv"><h2>Drinks</h2><span class="note">Something Refreshing</span></div>
+      <div class="tickets compact" style="margin-top:30px">
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Ramune</h3><span class="price">$4</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Calpico</h3><span class="price">$4</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Green Tea</h3><span class="price">$4</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Yuzu Soda</h3><span class="price">$4</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Melon Cream Soda</h3><span class="price">$4</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Mango Cream Soda</h3><span class="price">$4</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Plum Soda</h3><span class="price">$4</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Apple Juice</h3><span class="price">$5</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Coke</h3><span class="price">$2</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Diet Coke</h3><span class="price">$2</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Sprite</h3><span class="price">$2</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Sparkling Water</h3><span class="price">$3</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Bottled Water</h3><span class="price">$1.50</span></div></div></article>
+      </div>
+    </section>
+
+    <!-- ALCOHOL -->
+    <section class="cat" id="alcohol">
+      <div class="cat-head rv"><h2>Beer &amp; Sake</h2><span class="note">21 &amp; Over</span></div>
+      <p class="cat-sub rv">Japanese beers, chu-hi and sake — the perfect companions to a steaming bowl or a plate of yakitori.</p>
       <div class="tickets compact">
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Ramune</h3><span class="price">$4</span></div><p>Japanese marbled soda</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Calpico</h3><span class="price">$4</span></div><p>Refreshing citrus soft drink</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Green Tea</h3><span class="price">$4</span></div><p>Hot or iced</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Yuzu Soda</h3><span class="price">$4</span></div><p>Bright Japanese citrus</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Melon Cream Soda</h3><span class="price">$4</span></div><p>Kissaten classic</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Mango Cream Soda</h3><span class="price">$4</span></div><p>Sweet and creamy</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Plum Soda</h3><span class="price">$4</span></div><p>Ume-flavored fizz</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Apple Juice</h3><span class="price">$5</span></div><p>Chilled and crisp</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Coke</h3><span class="price">$2</span></div><p>The sparkling classic</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Diet Coke</h3><span class="price">$2</span></div><p>Zero calories, full crisp</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Sprite</h3><span class="price">$2</span></div><p>Lemon-lime refresher</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Sparkling Water</h3><span class="price">$3</span></div><p>Lightly effervescent</p></div></article>
-        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Bottled Water</h3><span class="price">$1.50</span></div><p>Still and cold</p></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Asahi Draft</h3><span class="price">$8</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Sapporo Bottle</h3><span class="price">$6</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Kirin Bottle</h3><span class="price">$6</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Kyoto Matcha IPA</h3><span class="price">$8</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>White Peach Chu-Hi</h3><span class="price">$7</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Grapefruit Chu-Hi</h3><span class="price">$7</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Ozeki One Cup Sake</h3><span class="price">$7</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Funaguchi Nama Genshu</h3><span class="price">$8</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Perfect Snow Unfiltered Sake</h3><span class="price">$8</span></div></div></article>
+        <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Yuzu Sake</h3><span class="price">$15</span></div></div></article>
       </div>
     </section>
 
     <!-- empty search state -->
     <div class="no-hit" id="nohit">
-      <div class="jp">無</div>
       No dishes match your search. Try another word — maybe "ramen", "chicken" or "gyoza".
     </div>
 
@@ -723,7 +766,6 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 </div><!-- /menu-layout -->
 
 <section class="cta-band">
-  <span class="bgk" aria-hidden="true">食券</span>
   <div class="inner">
     <h2>Found Your Bowl?</h2>
     <p>Pick your nearest location and order online — dine-in, pickup or delivery.</p>
