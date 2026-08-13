@@ -77,6 +77,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.25}
 .btn-red:hover{transform:translateY(-3px);background:var(--red-deep);box-shadow:0 16px 32px -10px rgba(195,39,43,.7)}
 #navLinks .btn{padding:.6rem 1.4rem;font-size:.85rem}
 #navLinks .btn::after{display:none}
+#navLinks a.btn-red{color:#fff;-webkit-text-fill-color:#fff}
 #site-nav .burger{display:none;flex-direction:column;gap:5px;padding:.5rem;z-index:110}
 #site-nav .burger span{width:26px;height:2.5px;background:var(--site-ink);border-radius:2px;transition:.35s var(--ease)}
 #site-nav.open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
@@ -88,7 +89,8 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.25}
 .site-footer .foot-grid a{display:block;padding:.28rem 0;color:rgba(251,245,233,.72);font-size:.92rem;transition:.25s}
 .site-footer .foot-grid a:hover{color:var(--red)}
 .site-footer .foot-brand p{color:rgba(251,245,233,.6);font-size:.9rem;max-width:34ch;margin-top:1rem}
-.site-footer .foot-brand .logo img{width:min(280px,55vw);height:auto;max-height:56px;object-fit:contain}
+.site-footer .foot-brand .logo{background:transparent;color:transparent}
+.site-footer .foot-brand .logo img{width:min(280px,55vw);height:auto;max-height:56px;object-fit:contain;mix-blend-mode:normal;-webkit-mix-blend-mode:normal}
 .site-footer .socials{display:flex;gap:.8rem;margin-top:1.4rem}
 .site-footer .socials a{width:42px;height:42px;border:1px solid var(--line-light);border-radius:50%;display:grid;place-items:center;color:rgba(251,245,233,.85);transition:.3s var(--ease)}
 .site-footer .socials a svg{width:18px;height:18px;fill:currentColor}
@@ -783,7 +785,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="index.html" style="color:var(--paper)">
+        <a class="logo" href="index.html" style="color:transparent;background:transparent">
           <img src="assets/footer-logo.png" alt="Ramen Hiroshi logo">
         </a>
         <p>Authentic Japanese taste in every bowl. Handcrafted ramen, made fresh across the Bay Area.</p>

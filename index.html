@@ -62,6 +62,7 @@ nav .logo img{mix-blend-mode:multiply;-webkit-mix-blend-mode:multiply}
 #navLinks a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
 #navLinks a:hover::after{transform:scaleX(1);transform-origin:left}
 #navLinks .btn{padding:.6rem 1.4rem;font-size:.85rem}
+#navLinks a.btn-red{color:#fff;-webkit-text-fill-color:#fff}
 @media(min-width:993px){
   nav .bar{gap:1.5rem}
   nav .logo{flex-shrink:0}
@@ -98,13 +99,13 @@ nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .bowl-ring{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1;margin-left:-59%;margin-top:-59%;border-radius:50%;border:1px dashed rgba(22,18,15,.25);animation:spin 40s linear infinite;z-index:1;pointer-events:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 .orbit-txt{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1;margin-left:-59%;margin-top:-59%;animation:spin 46s linear infinite reverse;pointer-events:none;z-index:2}
-.orbit-txt span{position:absolute;left:50%;top:50%;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(22,18,15,.45);transform-origin:0 0}
+.orbit-txt span{position:absolute;left:50%;top:50%;font-size:.72rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(22,18,15,.45);transform-origin:0 0}
 .bowl{position:relative;z-index:3;width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;border:10px solid rgba(22,18,15,.06);box-shadow:0 40px 90px -30px rgba(22,18,15,.5),0 0 0 1px rgba(22,18,15,.08);animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-14px)}}
 .steam{position:absolute;bottom:78%;left:50%;pointer-events:none;z-index:3}
 .steam i{position:absolute;bottom:0;width:9px;height:9px;border-radius:50%;background:rgba(22,18,15,.25);filter:blur(6px);opacity:0;animation:rise 4.2s ease-in infinite}
 @keyframes rise{0%{opacity:0;transform:translate(0,0) scale(.6)}15%{opacity:.85}100%{opacity:0;transform:translate(var(--dx,0),-190px) scale(2.6)}}
-.chip{position:absolute;background:rgba(22,18,15,.78);backdrop-filter:blur(8px);border:1px solid var(--line-light);border-radius:14px;padding:.7rem 1rem;font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:.55rem;animation:float 7s ease-in-out infinite;z-index:5;white-space:nowrap}
+.chip{position:absolute;background:rgba(22,18,15,.78);backdrop-filter:blur(8px);border:1px solid var(--line-light);border-radius:14px;padding:.7rem 1rem;font-size:.8rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.55rem;animation:float 7s ease-in-out infinite;z-index:5;white-space:nowrap}
 .chip b{color:var(--gold)}
 .chip.c1{top:0;left:0;animation-delay:.8s}
 .chip.c2{bottom:4%;right:0;animation-delay:1.6s}
@@ -245,7 +246,8 @@ footer{background:var(--ink);color:var(--paper);padding:5rem 0 2rem;position:rel
 .foot-grid a{display:block;padding:.28rem 0;color:rgba(251,245,233,.72);font-size:.92rem;transition:.25s}
 .foot-grid a:hover{color:var(--red)}
 .foot-brand p{color:rgba(251,245,233,.6);font-size:.9rem;max-width:34ch;margin-top:1rem}
-.foot-brand .logo img{width:min(280px,55vw);height:auto;max-height:56px;object-fit:contain}
+.foot-brand .logo{background:transparent;color:transparent}
+.foot-brand .logo img{width:min(280px,55vw);height:auto;max-height:56px;object-fit:contain;mix-blend-mode:normal;-webkit-mix-blend-mode:normal}
 .socials{display:flex;gap:.8rem;margin-top:1.4rem}
 .socials a{width:42px;height:42px;border:1px solid var(--line-light);border-radius:50%;display:grid;place-items:center;color:rgba(251,245,233,.85);transition:.3s var(--ease)}
 .socials a svg{width:18px;height:18px;fill:currentColor}
@@ -525,7 +527,7 @@ footer{background:var(--ink);color:var(--paper);padding:5rem 0 2rem;position:rel
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="#top" style="color:var(--paper)">
+        <a class="logo" href="#top" style="color:transparent;background:transparent">
           <img src="assets/footer-logo.png" alt="Ramen Hiroshi logo">
         </a>
         <p>Authentic Japanese taste in every bowl. Handcrafted ramen, made fresh across the Bay Area.</p>
