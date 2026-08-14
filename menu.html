@@ -221,13 +221,7 @@ body.sb-open .scrim{opacity:1;pointer-events:auto}
 .cat{scroll-margin-top:70px;padding:74px 0 66px}
 .cat + .cat{border-top:1px solid var(--line)}
 .cat-head{display:flex;align-items:baseline;gap:20px;margin-bottom:10px;flex-wrap:wrap}
-.cat-head .jp{
-  font-family:var(--disp);font-size:1.6rem;color:#fff;background:var(--aka);
-  width:56px;height:56px;display:grid;place-items:center;border-radius:6px;
-  transform:rotate(-4deg);box-shadow:0 10px 26px rgba(181,18,27,.35);align-self:center;
-}
 .cat-head h2{font-size:clamp(1.6rem,2.8vw,2.4rem)}
-.cat-head .note{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--kin);margin-left:auto;border:1px solid var(--line);padding:7px 14px;border-radius:999px}
 .cat-sub{color:var(--kome-dim);max-width:620px;margin:10px 0 40px;font-size:.93rem}
 
 /* tickets */
@@ -255,6 +249,8 @@ body.sb-open .scrim{opacity:1;pointer-events:auto}
 .t-top h3{font-size:1.08rem;font-weight:700}
 .price{font-family:var(--disp);font-weight:700;font-size:1.12rem;color:var(--aka-deep);white-space:nowrap}
 .t-body p{font-size:.84rem;color:#5b5140;flex:1}
+.extra-list{margin:0;padding-left:1.1rem;font-size:.84rem;color:#5b5140;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.extra-list li{padding-left:.15rem}
 .t-foot{
   display:flex;justify-content:space-between;align-items:center;
   border-top:1px dashed #cbbf9f;padding-top:11px;
@@ -339,7 +335,6 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 }
 @media(max-width:640px){
   .tickets,.tickets.compact{grid-template-columns:1fr}
-  .cat-head .note{margin-left:0}
   .cta-band .bgk{font-size:7rem}
   .site-footer .foot-grid{grid-template-columns:1fr}
 }
@@ -390,7 +385,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
   <div class="sb-title"><span>Categories</span></div>
   <nav class="sb-nav" id="sbnav">
-    <button class="sb-link active" data-cat="ramen"><span class="lbl">Signature Ramen</span><span class="cnt">8</span></button>
+    <button class="sb-link active" data-cat="ramen"><span class="lbl">Ramen</span><span class="cnt">9</span></button>
     <button class="sb-link" data-cat="chicken"><span class="lbl">Chicken Ramen</span><span class="cnt">4</span></button>
     <button class="sb-link" data-cat="vegetarian"><span class="lbl">Vegetarian Ramen</span><span class="cnt">2</span></button>
     <button class="sb-link" data-cat="seasonal"><span class="lbl">Seasonal</span><span class="cnt">2</span></button>
@@ -428,14 +423,14 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- RAMEN -->
     <section class="cat" id="ramen">
-      <div class="cat-head rv"><h2>Signature Ramen</h2><span class="note">The Heart of Hiroshi</span></div>
-      <p class="cat-sub rv">Slow-simmered broths, noodles matched to each bowl, and toppings prepped fresh every morning.</p>
+      <div class="cat-head rv"><h2>Ramen</h2></div>
+      <p class="cat-sub rv">Authentic Ramen, noodles matched to each bowl, and toppings prepped fresh every morning.</p>
       <div class="tickets">
         <article class="ticket rv">
           <div class="t-img"><span class="badge">Signature</span><img src="assets/hiroshi-tonkotsu-ramen.jpg" alt="Hiroshi Tonkotsu Ramen"></div>
           <div class="t-body">
             <div class="t-top"><h3>Hiroshi Tonkotsu</h3><span class="price">$18</span></div>
-            <p>At the heart of our signature dish lies our meticulously crafted housemade Hakata-style Tonkotsu broth, slow simmered for hours from pork bones to achieve depth and richness. The umami-rich broth is infused with sea-salt and dashi, topped with braised Berkshire pork belly slices, and marinated soft-boiled egg create a satisfying bowl of ramen. The addition of lotus root, black mushroom, bamboo shoot, green onion, and pickled red ginger adds depth of flavor and texture. Served with thin straight noodles to complement all that flavorful broth.</p>
+            <p>At the heart of our signature dish lies our meticulously crafted housemade Hakata-style Tonkotsu Authentic Ramen, from pork bones to achieve depth and richness. The umami-rich broth is infused with sea-salt and dashi, topped with braised Berkshire pork belly slices, and marinated soft-boiled egg create a satisfying bowl of ramen. The addition of lotus root, black mushroom, bamboo shoot, green onion, and pickled red ginger adds depth of flavor and texture. Served with thin straight noodles to complement all that flavorful broth.</p>
           </div>
         </article>
         <article class="ticket rv">
@@ -486,6 +481,19 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
             <p>Choose your soup base and noodle, then add toppings of your choice — your perfect bowl, your rules.</p>
           </div>
         </article>
+        <article class="ticket rv">
+          <div class="t-body" style="padding-top:24px">
+            <div class="t-top"><h3>Build Your Ramen</h3></div>
+            <p>Extras &amp; Add-Ons:</p>
+            <ul class="extra-list">
+              <li>Extra Broth +$5</li>
+              <li>Extra Noodle +$5 each — straight thin or curly</li>
+              <li>Extra Meat +$5 each — Berkshire pork chashu / organic chicken chashu / spicy ground pork</li>
+              <li>Extra Whole Egg / Fishcake +$3 each</li>
+              <li>Extra Vegetable +$2 each — bamboo shoot, bean sprouts, bok choy, cabbage, corn, green onion, kikurage mushroom, lotus root, seaweed, spinach</li>
+            </ul>
+          </div>
+        </article>
       </div>
       <div class="addons rv">
         <h3>Extras &amp; Add-Ons</h3>
@@ -501,7 +509,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- CHICKEN RAMEN -->
     <section class="cat" id="chicken">
-      <div class="cat-head rv"><h2>Chicken Ramen</h2><span class="note">Lighter, Just as Deep</span></div>
+      <div class="cat-head rv"><h2>Chicken Ramen</h2></div>
       <p class="cat-sub rv">Clean chicken broths with the same care, depth and fresh toppings as our signature bowls — topped with braised organic chicken slices.</p>
       <div class="tickets">
         <article class="ticket rv">
@@ -533,7 +541,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- VEGETARIAN RAMEN -->
     <section class="cat" id="vegetarian">
-      <div class="cat-head rv"><h2>Vegetarian Ramen</h2><span class="note">Plant-Based Comfort</span></div>
+      <div class="cat-head rv"><h2>Vegetarian Ramen</h2></div>
       <p class="cat-sub rv">Meat-free bowls built on a soy sauce–infused konbu and shiitake broth, with the same depth and care as every Hiroshi ramen.</p>
       <div class="tickets">
         <article class="ticket rv">
@@ -547,7 +555,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
           <div class="t-img"><img src="assets/vegetarian-ramen.jpg" alt="Yuzu Vegetarian Ramen"></div>
           <div class="t-body">
             <div class="t-top"><h3>Yuzu Vegetarian Ramen</h3><span class="price">$18</span></div>
-            <p>An addition of Japanese yuzu pepper adds a refreshing zing.</p>
+            <p>Yuzu infused vegetarian broth that comes with curly noodles, crowned with marinated soft-boiled egg, lotus root, bamboo shoot, bean sprouts, spinach, cabbage, green onion, shiitake mushroom, and dried seaweed.</p>
           </div>
         </article>
       </div>
@@ -555,20 +563,20 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- SEASONAL -->
     <section class="cat" id="seasonal">
-      <div class="cat-head rv"><h2>Seasonal</h2><span class="note">Limited Time</span></div>
+      <div class="cat-head rv"><h2>Seasonal</h2></div>
       <p class="cat-sub rv">Rotating specials that follow the seasons — here for a short while, so catch them while you can.</p>
       <div class="tickets">
         <article class="ticket rv">
           <div class="t-img"><span class="badge">Summer</span><img src="assets/hiyashi-chuka.jpg" alt="Hiyashi Chuka chilled summer noodles"></div>
           <div class="t-body">
-            <div class="t-top"><h3>Hiyashi Chuka</h3><span class="price">Ask</span></div>
+            <div class="t-top"><h3>Hiyashi Chuka</h3><span class="price">$19</span></div>
             <p>Chilled noodles topped with fresh vegetables and savory toppings in a light, tangy sauce — refreshing and perfect for warm days.</p>
           </div>
         </article>
         <article class="ticket rv">
           <div class="t-img"><img src="assets/tsukemen.jpg" alt="Tsukemen dipping ramen"></div>
           <div class="t-body">
-            <div class="t-top"><h3>Tsukemen</h3><span class="price">Ask</span></div>
+            <div class="t-top"><h3>Tsukemen</h3><span class="price">$19</span></div>
             <p>Dipping ramen — chilled noodles served alongside a rich, concentrated broth for dipping, finished with our signature toppings.</p>
           </div>
         </article>
@@ -577,7 +585,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- STARTERS -->
     <section class="cat" id="starters">
-      <div class="cat-head rv"><h2>Starters &amp; Salads</h2><span class="note">Izakaya Style</span></div>
+      <div class="cat-head rv"><h2>Starters &amp; Salads</h2></div>
       <p class="cat-sub rv">Small plates made fresh daily — the perfect opening act for your bowl.</p>
       <div class="tickets">
         <article class="ticket rv">
@@ -621,7 +629,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- FRIED -->
     <section class="cat" id="fried">
-      <div class="cat-head rv"><h2>Fried</h2><span class="note">Crisp &amp; Golden</span></div>
+      <div class="cat-head rv"><h2>Fried</h2></div>
       <p class="cat-sub rv">Golden, crunchy and made to order — from Hiroshi's famous karaage to street-festival takoyaki.</p>
       <div class="tickets">
         <article class="ticket rv">
@@ -673,7 +681,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- TEISHOKU -->
     <section class="cat" id="teishoku">
-      <div class="cat-head rv"><h2>Teishoku Sets</h2><span class="note">The Complete Meal</span></div>
+      <div class="cat-head rv"><h2>Teishoku Sets</h2></div>
       <p class="cat-sub rv">Traditional Japanese set meals — a main dish served with steamed rice, miso soup and a fresh side salad.</p>
       <div class="tickets">
         <article class="ticket rv">
@@ -701,9 +709,9 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- YAKITORI -->
     <section class="cat" id="yakitori">
-      <div class="cat-head rv"><h2>Yakitori</h2><span class="note">San Ramon &amp; San Francisco</span></div>
-      <p class="cat-sub rv">Skewers grilled over Binchotan — the prized Japanese white charcoal whose clean, intense, smokeless heat sears each skewer to juicy perfection with a subtle smoky finish. $4 each.</p>
-      <p class="cat-sub rv" style="margin-top:-28px">Served evenings only: <b>San Ramon</b> Fri – Sun, 5:00 – 8:30 PM · <b>San Francisco</b> Thu – Sat, 5:00 – 9:00 PM. Order online for <a href="https://order.boons.io/site/ramen-hiroshi-san-ramon/387/y" target="_blank" rel="noopener" style="text-decoration:underline">San Ramon</a> or <a href="https://order.boons.io/site/ramen-hiroshi-san-francisco/389/y" target="_blank" rel="noopener" style="text-decoration:underline">San Francisco</a>.</p>
+      <div class="cat-head rv"><h2>Yakitori</h2></div>
+      <p class="cat-sub rv">Skewers grilled over Binchotan — the prized Japanese white charcoal whose clean, intense, smokeless heat sears each skewer to juicy perfection with a subtle smoky finish.</p>
+      <p class="cat-sub rv" style="margin-top:-28px">Served evenings only: <b>San Ramon</b> Fri – Sat, 5:00 – 9:00 PM · Sun, 5:00 – 8:30 PM · <b>San Francisco</b> Thu – Sat, 5:00 – 9:00 PM. Order online for <a href="https://order.boons.io/site/ramen-hiroshi-san-ramon/387/y" target="_blank" rel="noopener" style="text-decoration:underline">San Ramon</a> or <a href="https://order.boons.io/site/ramen-hiroshi-san-francisco/389/y" target="_blank" rel="noopener" style="text-decoration:underline">San Francisco</a>.</p>
       <div class="tickets compact">
         <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Momo</h3><span class="price">$4</span></div><p>Chicken thigh</p></div></article>
         <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Negima</h3><span class="price">$4</span></div><p>Chicken thigh with leek</p></div></article>
@@ -723,7 +731,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- DRINKS -->
     <section class="cat" id="drinks">
-      <div class="cat-head rv"><h2>Drinks</h2><span class="note">Something Refreshing</span></div>
+      <div class="cat-head rv"><h2>Drinks</h2></div>
       <div class="tickets compact" style="margin-top:30px">
         <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Ramune</h3><span class="price">$4</span></div></div></article>
         <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Calpico</h3><span class="price">$4</span></div></div></article>
@@ -743,7 +751,7 @@ body.searching .cat .cat-sub,body.searching .addons{display:none}
 
     <!-- ALCOHOL -->
     <section class="cat" id="alcohol">
-      <div class="cat-head rv"><h2>Beer &amp; Sake</h2><span class="note">21 &amp; Over</span></div>
+      <div class="cat-head rv"><h2>Beer &amp; Sake</h2></div>
       <p class="cat-sub rv">Japanese beers, chu-hi and sake — the perfect companions to a steaming bowl or a plate of yakitori.</p>
       <div class="tickets compact">
         <article class="ticket rv"><div class="t-body"><div class="t-top"><h3>Asahi Draft</h3><span class="price">$8</span></div></div></article>
