@@ -1,0 +1,39 @@
+#promoFlyer{
+  position:fixed;inset:0;z-index:20000;
+  display:none;align-items:center;justify-content:center;
+  padding:1.25rem;background:rgba(8,12,22,.78);
+}
+#promoFlyer.is-open{display:flex}
+#promoFlyer .promo-card{
+  position:relative;
+  width:92vw;max-width:440px;max-height:90vh;
+  flex:0 0 auto;
+}
+#promoFlyer .promo-link{
+  display:block;background:#0a1a35;border:2px solid #c5a059;
+  border-radius:6px;overflow:hidden;
+  box-shadow:0 28px 70px -20px rgba(0,0,0,.65);
+}
+#promoFlyer img{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  max-height:85vh;
+  object-fit:contain;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+#promoFlyer .promo-close{
+  position:absolute;top:-12px;right:-12px;z-index:2;
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid #c5a059;background:#0a1a35;color:#c5a059;
+  font-size:1.4rem;line-height:1;cursor:pointer;
+  display:grid;place-items:center;
+}
+#promoFlyer .promo-close:hover,
+#promoFlyer .promo-close:focus-visible{background:#c5a059;color:#0a1a35;outline:none}
+body.flyer-open{overflow:hidden}
+@media(max-width:480px){
+  #promoFlyer .promo-close{top:-8px;right:-4px}
+}

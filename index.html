@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="accessibility.css">
+<link rel="stylesheet" href="flyer.css">
 <style>
 :root{
   --ink:#16120F;          /* lacquer black */
@@ -315,6 +316,15 @@ footer{background:var(--ink);color:var(--paper);padding:5rem 0 2rem;position:rel
 </style>
 </head>
 <body>
+
+<div id="promoFlyer" role="dialog" aria-modal="true" aria-label="Weekend special: 10% off online orders with code SUMMER10">
+  <div class="promo-card">
+    <button type="button" class="promo-close" aria-label="Close flyer">&times;</button>
+    <a class="promo-link" href="#locations">
+      <img src="assets/weekend-special-flyer.jpg" width="824" height="1024" alt="Weekend special: get 10% off your online food order. Use code SUMMER10. Valid till 23 August 2026.">
+    </a>
+  </div>
+</div>
 
 <!-- ========== NAV ========== -->
 <nav id="nav">
